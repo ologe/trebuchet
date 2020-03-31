@@ -26,9 +26,9 @@ android {
 }
 
 dependencies {
-    api project(':main')
-    api project(':detail')
-    api project(':settings')
+    api project(':feature-main')
+    api project(':feature-detail')
+    api project(':feature-settings')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
