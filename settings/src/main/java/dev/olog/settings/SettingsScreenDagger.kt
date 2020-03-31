@@ -1,6 +1,7 @@
 package dev.olog.settings
 
 import dagger.Binds
+import dagger.BindsInstance
 import dagger.Module
 import dagger.Subcomponent
 import dagger.multibindings.IntoMap
@@ -12,11 +13,14 @@ class SettingsScreenDagger {
 
     @Subcomponent
     @FeatureScope
-    interface SettingsSubComponent :
-        Injectable<SettingsActivity> {
+    interface SettingsSubComponent : Injectable<SettingsActivity> {
 
-        @Subcomponent.Builder
-        interface Builder : Injectable.Builder<SettingsSubComponent>
+        @Subcomponent.Factory
+        interface Factory : Injectable.Factory<SettingsSubComponent> {
+
+            fun create(@BindsInstance instance:SettingsActivity): SettingsSubComponent
+
+        }
 
     }
 
@@ -26,12 +30,12 @@ class SettingsScreenDagger {
         @Binds
         @IntoMap
         @InjectableKey(SettingsActivity::class)
-        abstract fun provideBuilder(builder: SettingsSubComponent.Builder): Injectable.Builder<*>
+        abstract fun provideFactory(factory: SettingsSubComponent.Factory): Injectable.Factory<*>
 
     }
 
     interface SettingsScreenGraph {
-        fun settingsScreenBuilder(): SettingsSubComponent.Builder
+        fun settingsScreenFactory(): SettingsSubComponent.Factory
     }
 
 

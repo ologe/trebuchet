@@ -1,6 +1,7 @@
 package dev.olog.main
 
 import dagger.Binds
+import dagger.BindsInstance
 import dagger.Module
 import dagger.Subcomponent
 import dagger.multibindings.IntoMap
@@ -12,28 +13,31 @@ class MainScreenDagger {
 
     @Subcomponent
     @FeatureScope
-    interface MainSubComponent :
-        Injectable<MainActivity> {
+    interface MainSubComponent : Injectable<MainActivity> {
 
-        @Subcomponent.Builder
-        interface Builder : Injectable.Builder<MainSubComponent>
+        @Subcomponent.Factory
+        interface Factory : Injectable.Factory<MainSubComponent> {
+
+            fun create(@BindsInstance instance: MainActivity): MainSubComponent
+
+        }
 
     }
 
     @Module
     abstract class AppModule {
 
-        // adds builder exposed by `MainScreenGraph` to a multibinding map
+        // adds factory exposed by `MainScreenGraph` to a multibinding map
         @Binds
         @IntoMap
         @InjectableKey(MainActivity::class)
-        abstract fun provideBuilder(builder: MainSubComponent.Builder): Injectable.Builder<*>
+        abstract fun provideFactory(factory: MainSubComponent.Factory): Injectable.Factory<*>
 
     }
 
-    // exposes `MainSubComponent.Builder` from `AppComponent`
+    // exposes `MainSubComponent.Factory` from `AppComponent`
     interface MainScreenGraph {
-        fun mainScreenBuilder(): MainSubComponent.Builder
+        fun mainScreenFactory(): MainSubComponent.Factory
     }
 
 }

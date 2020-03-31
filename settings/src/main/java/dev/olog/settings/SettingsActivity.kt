@@ -15,8 +15,8 @@ class SettingsActivity : AppCompatActivity(R.layout.activity_settings),
     lateinit var repository: Repository
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        subComponentBuilder<SettingsScreenDagger.SettingsSubComponent.Builder>(this)
-            .build()
+        subComponentBuilder<SettingsScreenDagger.SettingsSubComponent.Factory>(this)
+            .create(this)
             .inject(this)
 
         super.onCreate(savedInstanceState)

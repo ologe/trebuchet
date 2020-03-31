@@ -7,8 +7,6 @@ interface Injectable<Component : InjectableComponent> {
 
     fun inject(instance: Component)
 
-    interface Builder<InjectableComponent : Injectable<*>> {
-        fun build(): InjectableComponent
-    }
+    interface Factory<InjectableComponent : Injectable<*>>
 
 }

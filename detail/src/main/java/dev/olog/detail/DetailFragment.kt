@@ -20,7 +20,8 @@ class DetailFragment : Fragment(R.layout.fragment_detail),
     lateinit var repository: Repository
 
     override fun onAttach(context: Context) {
-        subComponentBuilder<DetailScreenDagger.DetailSubComponent.Builder>(context).build()
+        subComponentBuilder<DetailScreenDagger.DetailSubComponent.Factory>(context)
+            .create()
             .inject(this)
         super.onAttach(context)
     }

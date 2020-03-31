@@ -15,9 +15,13 @@ class MainActivity : AppCompatActivity(R.layout.activity_main),
     @Inject
     lateinit var repository: Repository
 
+    // just to test that module injection works
+    @Inject
+    lateinit var act: MainActivity
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        subComponentBuilder<MainScreenDagger.MainSubComponent.Builder>(this)
-            .build()
+        subComponentBuilder<MainScreenDagger.MainSubComponent.Factory>(this)
+            .create(this)
             .inject(this)
 
         super.onCreate(savedInstanceState)

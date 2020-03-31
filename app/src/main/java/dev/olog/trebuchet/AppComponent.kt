@@ -25,8 +25,7 @@ import javax.inject.Singleton
 interface AppComponent :
     MainScreenDagger.MainScreenGraph,
     DetailScreenDagger.DetailScreenGraph,
-    SettingsScreenDagger.SettingsScreenGraph
-{
+    SettingsScreenDagger.SettingsScreenGraph {
 
     fun inject(app: App)
 
@@ -43,7 +42,7 @@ interface AppComponent :
 abstract class AppModule {
 
     @Multibinds
-    abstract fun provideSubcompomnentBuilders(): Map<Class<*>, Injectable.Builder<*>>
+    abstract fun provideSubComponentBuilders(): Map<Class<*>, Injectable.Factory<*>>
 
     companion object {
         @Provides

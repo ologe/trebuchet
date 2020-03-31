@@ -17,7 +17,8 @@ class DetailActivity : AppCompatActivity(R.layout.activity_detail),
     lateinit var repository: Repository
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        subComponentBuilder<DetailScreenDagger.DetailSubComponent.Builder>(this).build()
+        subComponentBuilder<DetailScreenDagger.DetailSubComponent.Factory>(this)
+            .create()
             .inject(this)
 
         super.onCreate(savedInstanceState)

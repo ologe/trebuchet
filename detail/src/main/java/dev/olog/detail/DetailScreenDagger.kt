@@ -16,8 +16,12 @@ class DetailScreenDagger {
 
         fun inject(fragment: DetailFragment)
 
-        @Subcomponent.Builder
-        interface Builder : Injectable.Builder<DetailSubComponent>
+        @Subcomponent.Factory
+        interface Factory : Injectable.Factory<DetailSubComponent> {
+
+            fun create(): DetailSubComponent
+
+        }
 
     }
 
@@ -27,17 +31,17 @@ class DetailScreenDagger {
         @Binds
         @IntoMap
         @InjectableKey(DetailActivity::class)
-        abstract fun provideBuilder(builder: DetailSubComponent.Builder): Injectable.Builder<*>
+        abstract fun provideFactory(factory: DetailSubComponent.Factory): Injectable.Factory<*>
 
         @Binds
         @IntoMap
         @InjectableKey(DetailFragment::class)
-        abstract fun provideFragmentBuilder(builder: DetailSubComponent.Builder): Injectable.Builder<*>
+        abstract fun provideFragmentFactory(factory: DetailSubComponent.Factory): Injectable.Factory<*>
 
     }
 
     interface DetailScreenGraph {
-        fun detailScreenBuilder(): DetailSubComponent.Builder
+        fun detailScreenFactory(): DetailSubComponent.Factory
     }
 
 
