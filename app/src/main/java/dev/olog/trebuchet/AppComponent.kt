@@ -9,12 +9,14 @@ import dev.olog.core.dagger.injectable.Injectable
 import dev.olog.core.gateway.Repository
 import dev.olog.flavor.FlavorGraph
 import dev.olog.flavor.FlavorModule
+import dev.olog.navigation.NavigationModule
 import javax.inject.Singleton
 
 @Component(
     modules = [
         AppModule::class,
-        FlavorModule::class
+        FlavorModule::class,
+        NavigationModule::class
     ]
 )
 @Singleton

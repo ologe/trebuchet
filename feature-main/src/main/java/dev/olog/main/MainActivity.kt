@@ -6,6 +6,7 @@ import dev.olog.core.dagger.injectable.InjectableComponent
 import dev.olog.core.dagger.subComponentBuilder
 import dev.olog.core.gateway.Repository
 import dev.olog.intents.Activities
+import dev.olog.navigation.Navigator
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -19,6 +20,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main),
     @Inject
     lateinit var act: MainActivity
 
+    @Inject
+    lateinit var navigator: Navigator
+
     override fun onCreate(savedInstanceState: Bundle?) {
         subComponentBuilder<MainScreenDagger.MainSubComponent.Factory>(this)
             .create(this)
@@ -29,11 +33,11 @@ class MainActivity : AppCompatActivity(R.layout.activity_main),
         repo.text = repository.toString()
 
         detail.setOnClickListener {
-            startActivity(Activities.toDetail(this, 1))
+            navigator.startActivity(this, Activities.toDetail(this, 1))
         }
 
         settings.setOnClickListener {
-            startActivity(Activities.toSettings(this))
+            navigator.startActivity(this, Activities.toSettings(this))
         }
     }
 

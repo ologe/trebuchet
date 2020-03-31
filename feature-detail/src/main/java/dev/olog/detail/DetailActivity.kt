@@ -7,6 +7,7 @@ import dev.olog.core.dagger.subComponentBuilder
 import dev.olog.core.gateway.Repository
 import dev.olog.intents.Fragments
 import dev.olog.intents.Params
+import dev.olog.navigation.Navigator
 import kotlinx.android.synthetic.main.activity_detail.*
 import javax.inject.Inject
 
@@ -15,6 +16,9 @@ class DetailActivity : AppCompatActivity(R.layout.activity_detail),
 
     @Inject
     lateinit var repository: Repository
+
+    @Inject
+    lateinit var navigator: Navigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         subComponentBuilder<DetailScreenDagger.DetailSubComponent.Factory>(this)
@@ -29,9 +33,9 @@ class DetailActivity : AppCompatActivity(R.layout.activity_detail),
         repo.text = repository.toString()
 
         // for the sake of the example
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, Fragments.toDetailFragment(id)!!)
-            .commit()
+        navigator.replaceFragment(this, Fragments.toDetailFragment(id)!!) { f ->
+            replace(R.id.fragmentContainer, f)
+        }
     }
 
 }
