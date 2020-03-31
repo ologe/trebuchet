@@ -1,0 +1,19 @@
+class FlavorOptions {
+    final String entryModule
+    final boolean useSeparatePackageName
+
+    FlavorOptions(String entryModule) {
+        this(entryModule, false)
+    }
+
+    FlavorOptions(String entryModule, boolean useSeparatePackageName) {
+        this.entryModule = entryModule
+        this.useSeparatePackageName = useSeparatePackageName
+    }
+
+}
+
+project.ext.flavors = [
+        full: new FlavorOptions(":flavor-full"),
+        lite: new FlavorOptions(":flavor-lite", true),
+]

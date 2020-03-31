@@ -9,6 +9,7 @@ import dev.olog.core.dagger.FeatureScope
 import dev.olog.core.dagger.injectable.Injectable
 import dev.olog.core.dagger.injectable.InjectableKey
 
+// TODO this can be generated using ktscript
 class MainScreenDagger {
 
     @Subcomponent
@@ -35,7 +36,7 @@ class MainScreenDagger {
 
     }
 
-    // exposes `MainSubComponent.Factory` from `AppComponent`
+    // TODO exposes `MainSubComponent.Factory` from `AppComponent`, this allows lazy subcompoments
     interface MainScreenGraph {
         fun mainScreenFactory(): MainSubComponent.Factory
     }

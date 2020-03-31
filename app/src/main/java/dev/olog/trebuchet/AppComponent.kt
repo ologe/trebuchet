@@ -8,17 +8,15 @@ import dagger.multibindings.Multibinds
 import dev.olog.core.dagger.injectable.Injectable
 import dev.olog.core.gateway.Repository
 import dev.olog.detail.DetailScreenDagger
+import dev.olog.flavor.FlavorModule
 import dev.olog.main.MainScreenDagger
 import dev.olog.settings.SettingsScreenDagger
 import javax.inject.Singleton
 
 @Component(
     modules = [
-        MainScreenDagger.AppModule::class,
-        DetailScreenDagger.AppModule::class,
-        SettingsScreenDagger.AppModule::class,
-
-        AppModule::class
+        AppModule::class,
+        FlavorModule::class
     ]
 )
 @Singleton
