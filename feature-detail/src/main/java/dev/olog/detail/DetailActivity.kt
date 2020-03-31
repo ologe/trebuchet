@@ -34,7 +34,10 @@ class DetailActivity : AppCompatActivity(R.layout.activity_detail),
 
         // for the sake of the example
         navigator.replaceFragment(this, Fragments.toDetailFragment(id)!!) { f ->
-            replace(R.id.fragmentContainer, f)
+            // TODO not sure why listing id is not passing correctly to fragment
+            //   f here has the correct value
+            //   but after inflation it changes
+            replace(R.id.fragmentContainer, f, "tag")
         }
     }
 
