@@ -1,0 +1,2 @@
+rootProject.name='Trebuchet'
+include ':app'
