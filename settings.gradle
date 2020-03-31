@@ -1,2 +1,6 @@
 rootProject.name='Trebuchet'
 include ':app'
+include ':main'
+include ':detail'
+include ':core'
+include ':settings'
