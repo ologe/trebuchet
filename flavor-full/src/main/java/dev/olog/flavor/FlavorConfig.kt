@@ -13,3 +13,8 @@ import dev.olog.settings.SettingsScreenDagger
     ]
 )
 abstract class FlavorModule
+
+interface FlavorGraph :
+    MainScreenDagger.MainScreenGraph,
+    DetailScreenDagger.DetailScreenGraph,
+    SettingsScreenDagger.SettingsScreenGraph

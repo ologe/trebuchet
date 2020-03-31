@@ -7,10 +7,8 @@ import dagger.Provides
 import dagger.multibindings.Multibinds
 import dev.olog.core.dagger.injectable.Injectable
 import dev.olog.core.gateway.Repository
-import dev.olog.detail.DetailScreenDagger
+import dev.olog.flavor.FlavorGraph
 import dev.olog.flavor.FlavorModule
-import dev.olog.main.MainScreenDagger
-import dev.olog.settings.SettingsScreenDagger
 import javax.inject.Singleton
 
 @Component(
@@ -20,10 +18,7 @@ import javax.inject.Singleton
     ]
 )
 @Singleton
-interface AppComponent :
-    MainScreenDagger.MainScreenGraph,
-    DetailScreenDagger.DetailScreenGraph,
-    SettingsScreenDagger.SettingsScreenGraph {
+interface AppComponent : FlavorGraph {
 
     fun inject(app: App)
 
