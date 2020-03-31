@@ -30,6 +30,7 @@ dependencies {
     implementation project(':detail')
     implementation project(':main')
     implementation project(':settings')
+    implementation project(':intents')
 
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"

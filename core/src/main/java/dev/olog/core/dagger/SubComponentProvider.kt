@@ -1,5 +1,6 @@
 package dev.olog.core.dagger
 
+import android.content.Context
 import dev.olog.core.dagger.injectable.Injectable
 import dev.olog.core.dagger.injectable.InjectableComponent
 
@@ -13,6 +14,6 @@ interface SubComponentProvider {
 /**
  * Allow to get the subcomponent builder from [InjectableComponent]
  */
-fun <R : Injectable.Builder<*>> InjectableComponent.subComponentBuilder(): R {
+fun <R : Injectable.Builder<*>> InjectableComponent.subComponentBuilder(context: Context): R {
     return (context.applicationContext as SubComponentProvider).subComponentBuilder(this)
 }

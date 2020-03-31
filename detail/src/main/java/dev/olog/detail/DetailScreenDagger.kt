@@ -2,21 +2,19 @@ package dev.olog.detail
 
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.Subcomponent
 import dagger.multibindings.IntoMap
-import dagger.multibindings.IntoSet
 import dev.olog.core.dagger.FeatureScope
 import dev.olog.core.dagger.injectable.Injectable
 import dev.olog.core.dagger.injectable.InjectableKey
-import dev.olog.core.navigation.TrebuchetKey
 
 class DetailScreenDagger {
 
     @Subcomponent
     @FeatureScope
-    interface DetailSubComponent :
-        Injectable<DetailActivity> {
+    interface DetailSubComponent : Injectable<DetailActivity> {
+
+        fun inject(fragment: DetailFragment)
 
         @Subcomponent.Builder
         interface Builder : Injectable.Builder<DetailSubComponent>
@@ -31,13 +29,10 @@ class DetailScreenDagger {
         @InjectableKey(DetailActivity::class)
         abstract fun provideBuilder(builder: DetailSubComponent.Builder): Injectable.Builder<*>
 
-        companion object {
-            @Provides
-            @IntoSet
-            fun provideTrebuchetKeys(): TrebuchetKey {
-                return object : TrebuchetKey("detail") {}
-            }
-        }
+        @Binds
+        @IntoMap
+        @InjectableKey(DetailFragment::class)
+        abstract fun provideFragmentBuilder(builder: DetailSubComponent.Builder): Injectable.Builder<*>
 
     }
 

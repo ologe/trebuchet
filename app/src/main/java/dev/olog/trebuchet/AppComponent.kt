@@ -5,7 +5,6 @@ import dagger.Component
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.Multibinds
-import dev.olog.core.dagger.BaseGraph
 import dev.olog.core.dagger.injectable.Injectable
 import dev.olog.core.gateway.Repository
 import dev.olog.detail.DetailScreenDagger
@@ -23,7 +22,7 @@ import javax.inject.Singleton
     ]
 )
 @Singleton
-interface AppComponent : BaseGraph,
+interface AppComponent :
     MainScreenDagger.MainScreenGraph,
     DetailScreenDagger.DetailScreenGraph,
     SettingsScreenDagger.SettingsScreenGraph

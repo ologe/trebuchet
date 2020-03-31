@@ -1,4 +1,4 @@
-package dev.olog.trebuchet
+package dev.olog.intents
 
 import org.junit.Test
 

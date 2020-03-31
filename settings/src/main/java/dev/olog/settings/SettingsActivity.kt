@@ -1,17 +1,26 @@
 package dev.olog.settings
 
-import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import dev.olog.core.dagger.injectable.InjectableComponent
+import dev.olog.core.dagger.subComponentBuilder
+import dev.olog.core.gateway.Repository
+import kotlinx.android.synthetic.main.activity_settings.*
+import javax.inject.Inject
 
 class SettingsActivity : AppCompatActivity(R.layout.activity_settings),
     InjectableComponent {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        // TODO dagger
-        super.onCreate(savedInstanceState)
-    }
+    @Inject
+    lateinit var repository: Repository
 
-    override val context: Context = this
+    override fun onCreate(savedInstanceState: Bundle?) {
+        subComponentBuilder<SettingsScreenDagger.SettingsSubComponent.Builder>(this)
+            .build()
+            .inject(this)
+
+        super.onCreate(savedInstanceState)
+
+        repo.text = repository.toString()
+    }
 }
