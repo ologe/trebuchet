@@ -18,7 +18,7 @@ class SettingsScreenDagger {
     interface SettingsSubComponent : Injectable<SettingsActivity> {
 
         @Subcomponent.Factory
-        interface Factory : Injectable.Factory<SettingsSubComponent> {
+        interface Factory : Injectable.Factory {
 
             fun create(@BindsInstance instance: SettingsActivity): SettingsSubComponent
 
@@ -32,7 +32,7 @@ class SettingsScreenDagger {
         @Binds
         @IntoMap
         @InjectableKey(SettingsActivity::class)
-        abstract fun provideFactory(factory: SettingsSubComponent.Factory): Injectable.Factory<*>
+        abstract fun provideFactory(factory: SettingsSubComponent.Factory): Injectable.Factory
 
         companion object {
 

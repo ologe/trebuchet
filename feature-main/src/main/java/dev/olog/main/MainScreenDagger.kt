@@ -19,7 +19,7 @@ class MainScreenDagger {
     interface MainSubComponent : Injectable<MainActivity> {
 
         @Subcomponent.Factory
-        interface Factory : Injectable.Factory<MainSubComponent> {
+        interface Factory : Injectable.Factory {
 
             fun create(@BindsInstance instance: MainActivity): MainSubComponent
 
@@ -34,7 +34,7 @@ class MainScreenDagger {
         @Binds
         @IntoMap
         @InjectableKey(MainActivity::class)
-        abstract fun provideFactory(factory: MainSubComponent.Factory): Injectable.Factory<*>
+        abstract fun provideFactory(factory: MainSubComponent.Factory): Injectable.Factory
 
         companion object {
 

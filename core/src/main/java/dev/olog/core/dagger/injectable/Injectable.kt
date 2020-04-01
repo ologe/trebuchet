@@ -10,7 +10,7 @@ interface Injectable<Component : InjectableComponent> {
 
     fun inject(instance: Component)
 
-    interface Factory<InjectableComponent : Injectable<*>>
+    interface Factory
 
 }
 
@@ -22,4 +22,4 @@ interface InjectableComponent
 @MapKey
 annotation class InjectableKey(val value: KClass<out InjectableComponent>)
 
-typealias InjectableComponentsMap = Map<Class<out InjectableComponent>, @JvmSuppressWildcards Injectable.Factory<*>>
+typealias InjectableComponentsMap = Map<Class<out InjectableComponent>, @JvmSuppressWildcards Injectable.Factory>

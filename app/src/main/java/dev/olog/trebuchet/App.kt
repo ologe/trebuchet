@@ -21,7 +21,7 @@ class App : Application(), SubComponentProvider {
     }
 
     @Suppress("UNCHECKED_CAST")
-    override fun <T : Injectable.Factory<*>> subComponentBuilder(
+    override fun <T : Injectable.Factory> subComponentBuilder(
         component: InjectableComponent
     ): T {
         return multibinds[component::class.java] as T

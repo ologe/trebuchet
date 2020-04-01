@@ -2,7 +2,6 @@ package dev.olog.detail
 
 import android.content.Context
 import android.content.Intent
-import androidx.fragment.app.Fragment
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -23,7 +22,7 @@ class DetailScreenDagger {
         fun inject(fragment: DetailFragment)
 
         @Subcomponent.Factory
-        interface Factory : Injectable.Factory<DetailSubComponent> {
+        interface Factory : Injectable.Factory {
 
             fun create(): DetailSubComponent
 
@@ -37,12 +36,12 @@ class DetailScreenDagger {
         @Binds
         @IntoMap
         @InjectableKey(DetailActivity::class)
-        abstract fun provideFactory(factory: DetailSubComponent.Factory): Injectable.Factory<*>
+        abstract fun provideFactory(factory: DetailSubComponent.Factory): Injectable.Factory
 
         @Binds
         @IntoMap
         @InjectableKey(DetailFragment::class)
-        abstract fun provideFragmentFactory(factory: DetailSubComponent.Factory): Injectable.Factory<*>
+        abstract fun provideFragmentFactory(factory: DetailSubComponent.Factory): Injectable.Factory
 
         companion object {
 
