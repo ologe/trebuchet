@@ -12,10 +12,7 @@ import dev.olog.core.dagger.ApplicationContext
 import dev.olog.core.dagger.FeatureScope
 import dev.olog.core.dagger.injectable.Injectable
 import dev.olog.core.dagger.injectable.InjectableKey
-import dev.olog.navigation.ActivityScreen
-import dev.olog.navigation.ActivityScreenKey
-import dev.olog.navigation.FragmentScreen
-import dev.olog.navigation.FragmentScreenKey
+import dev.olog.navigation.*
 
 class DetailScreenDagger {
 
@@ -59,7 +56,7 @@ class DetailScreenDagger {
             @IntoMap
             @Provides
             @FragmentScreenKey(FragmentScreen.DETAIL)
-            fun provideFragment(): Class<out Fragment> = DetailFragment::class.java
+            fun provideFragment(): FragmentContainer = DetailFragment::class.java
 
         }
 

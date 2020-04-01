@@ -10,8 +10,9 @@ annotation class ActivityScreenKey(val value: ActivityScreen)
 @MapKey
 annotation class FragmentScreenKey(val value: FragmentScreen)
 
+typealias FragmentContainer = Class<out Fragment>
 internal typealias IntentsMap = Map<ActivityScreen, @JvmSuppressWildcards Intent>
-internal typealias FragmentsMap = Map<FragmentScreen, @JvmSuppressWildcards Class<out Fragment>>
+internal typealias FragmentsMap = Map<FragmentScreen, @JvmSuppressWildcards FragmentContainer>
 
 enum class ActivityScreen {
     MAIN,
