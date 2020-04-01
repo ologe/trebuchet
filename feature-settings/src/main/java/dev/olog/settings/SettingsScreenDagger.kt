@@ -24,7 +24,7 @@ class SettingsScreenDagger {
 
     }
 
-    @Module
+    @Module(subcomponents = [SettingsSubComponent::class])
     abstract class AppModule {
 
         @Binds
@@ -32,10 +32,6 @@ class SettingsScreenDagger {
         @InjectableKey(SettingsActivity::class)
         abstract fun provideFactory(factory: SettingsSubComponent.Factory): Injectable.Factory<*>
 
-    }
-
-    interface SettingsScreenGraph {
-        fun settingsScreenFactory(): SettingsSubComponent.Factory
     }
 
 

@@ -25,7 +25,7 @@ class DetailScreenDagger {
 
     }
 
-    @Module
+    @Module(subcomponents = [DetailSubComponent::class])
     abstract class AppModule {
 
         @Binds
@@ -38,10 +38,6 @@ class DetailScreenDagger {
         @InjectableKey(DetailFragment::class)
         abstract fun provideFragmentFactory(factory: DetailSubComponent.Factory): Injectable.Factory<*>
 
-    }
-
-    interface DetailScreenGraph {
-        fun detailScreenFactory(): DetailSubComponent.Factory
     }
 
 

@@ -5,6 +5,7 @@ import dev.olog.detail.DetailScreenDagger
 import dev.olog.main.MainScreenDagger
 import dev.olog.settings.SettingsScreenDagger
 
+// TODO find a way to avoid this
 @Module(
     includes = [
         MainScreenDagger.AppModule::class,
@@ -13,8 +14,3 @@ import dev.olog.settings.SettingsScreenDagger
     ]
 )
 abstract class FlavorModule
-
-interface FlavorGraph :
-    MainScreenDagger.MainScreenGraph,
-    DetailScreenDagger.DetailScreenGraph,
-    SettingsScreenDagger.SettingsScreenGraph

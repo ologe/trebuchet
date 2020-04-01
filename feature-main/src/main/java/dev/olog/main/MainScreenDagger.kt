@@ -25,7 +25,7 @@ class MainScreenDagger {
 
     }
 
-    @Module
+    @Module(subcomponents = [MainSubComponent::class])
     abstract class AppModule {
 
         // adds factory exposed by `MainScreenGraph` to a multibinding map
@@ -34,11 +34,6 @@ class MainScreenDagger {
         @InjectableKey(MainActivity::class)
         abstract fun provideFactory(factory: MainSubComponent.Factory): Injectable.Factory<*>
 
-    }
-
-    // TODO exposes `MainSubComponent.Factory` from `AppComponent`, this allows lazy subcompoments
-    interface MainScreenGraph {
-        fun mainScreenFactory(): MainSubComponent.Factory
     }
 
 }
