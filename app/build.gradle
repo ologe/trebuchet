@@ -48,7 +48,6 @@ android {
 
 dependencies {
     implementation project(':core')
-    implementation project(':intents')
     implementation project(':navigation')
     // TODO don't need to add dependency for flavor here
 

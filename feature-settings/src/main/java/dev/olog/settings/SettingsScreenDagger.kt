@@ -1,13 +1,15 @@
 package dev.olog.settings
 
-import dagger.Binds
-import dagger.BindsInstance
-import dagger.Module
-import dagger.Subcomponent
+import android.content.Context
+import android.content.Intent
+import dagger.*
 import dagger.multibindings.IntoMap
+import dev.olog.core.dagger.ApplicationContext
 import dev.olog.core.dagger.FeatureScope
 import dev.olog.core.dagger.injectable.Injectable
 import dev.olog.core.dagger.injectable.InjectableKey
+import dev.olog.navigation.ActivityScreen
+import dev.olog.navigation.ActivityScreenKey
 
 class SettingsScreenDagger {
 
@@ -18,7 +20,7 @@ class SettingsScreenDagger {
         @Subcomponent.Factory
         interface Factory : Injectable.Factory<SettingsSubComponent> {
 
-            fun create(@BindsInstance instance:SettingsActivity): SettingsSubComponent
+            fun create(@BindsInstance instance: SettingsActivity): SettingsSubComponent
 
         }
 
@@ -31,6 +33,17 @@ class SettingsScreenDagger {
         @IntoMap
         @InjectableKey(SettingsActivity::class)
         abstract fun provideFactory(factory: SettingsSubComponent.Factory): Injectable.Factory<*>
+
+        companion object {
+
+            @IntoMap
+            @Provides
+            @ActivityScreenKey(ActivityScreen.SETTINGS)
+            fun provideActivity(@ApplicationContext context: Context): Intent {
+                return Intent(context, SettingsActivity::class.java)
+            }
+
+        }
 
     }
 

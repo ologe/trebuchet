@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import dev.olog.core.dagger.injectable.InjectableComponent
 import dev.olog.core.dagger.subComponentBuilder
 import dev.olog.core.gateway.Repository
-import dev.olog.intents.Activities
 import dev.olog.navigation.Navigator
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
@@ -33,11 +32,11 @@ class MainActivity : AppCompatActivity(R.layout.activity_main),
         repo.text = repository.toString()
 
         detail.setOnClickListener {
-            navigator.startActivity(this, Activities.toDetail(this, 1))
+            navigator.toDetail(this, 101)
         }
 
         settings.setOnClickListener {
-            navigator.startActivity(this, Activities.toSettings(this))
+            navigator.toSettings(this)
         }
     }
 

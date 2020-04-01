@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import dev.olog.core.dagger.injectable.InjectableComponent
 import dev.olog.core.dagger.subComponentBuilder
 import dev.olog.core.gateway.Repository
-import dev.olog.intents.Params
+import dev.olog.navigation.Params
 import kotlinx.android.synthetic.main.activity_detail.*
 import javax.inject.Inject
 
@@ -28,7 +28,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val id = arguments!!.getInt(Params.LISTING_ID)
+        val id = arguments!!.getLong(Params.LISTING_ID)
 
         listingId.text = "listing id $id"
         repo.text = repository.toString()

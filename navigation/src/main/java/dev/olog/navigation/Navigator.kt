@@ -1,18 +1,23 @@
 package dev.olog.navigation
 
-import android.content.Intent
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
 
+object Params {
+    const val LISTING_ID = "listing_id"
+}
+
 interface Navigator {
 
-    fun startActivity(activity: FragmentActivity, intent: Intent?)
+    fun toDetail(activity: FragmentActivity, listingId: Long)
 
-    fun replaceFragment(
+    fun toDetailFragment(
         activity: FragmentActivity,
-        fragment: Fragment?,
+        listingId: Long,
         block: FragmentTransaction.(Fragment) -> FragmentTransaction
     )
+
+    fun toSettings(activity: FragmentActivity)
 
 }
