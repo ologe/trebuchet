@@ -1,10 +1,10 @@
-package dev.olog.main
+package dev.olog.main.dagger
 
 import dagger.Module
 import dagger.Provides
 
 @Module
-class MainScreenModule {
+class MainActivityModule {
 
     @Provides
     fun provideString(): String{

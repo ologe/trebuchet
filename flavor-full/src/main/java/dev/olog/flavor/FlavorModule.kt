@@ -1,16 +1,16 @@
 package dev.olog.flavor
 
 import dagger.Module
-import dev.olog.detail.DetailScreenDagger
-import dev.olog.main.MainScreenDagger
-import dev.olog.settings.SettingsScreenDagger
+import dev.olog.detail.dagger.DetailScreenDagger
+import dev.olog.main.dagger.FeatureMainDagger
+import dev.olog.settings.dagger.FeatureSettingsDagger
 
 // TODO find a way to avoid this
 @Module(
     includes = [
-        MainScreenDagger.AppModule::class,
+        FeatureMainDagger.AppModule::class,
         DetailScreenDagger.AppModule::class,
-        SettingsScreenDagger.AppModule::class
+        FeatureSettingsDagger.AppModule::class
     ]
 )
 abstract class FlavorModule

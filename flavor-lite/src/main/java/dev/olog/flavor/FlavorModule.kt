@@ -1,12 +1,12 @@
 package dev.olog.flavor
 
 import dagger.Module
-import dev.olog.detail.DetailScreenDagger
-import dev.olog.main.MainScreenDagger
+import dev.olog.detail.dagger.DetailScreenDagger
+import dev.olog.main.dagger.FeatureMainDagger
 
 @Module(
     includes = [
-        MainScreenDagger.AppModule::class,
+        FeatureMainDagger.AppModule::class,
         DetailScreenDagger.AppModule::class
     ]
 )

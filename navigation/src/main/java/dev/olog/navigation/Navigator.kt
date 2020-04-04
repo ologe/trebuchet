@@ -4,10 +4,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
 
-object Params {
-    const val LISTING_ID = "listing_id"
-}
-
 interface Navigator {
 
     fun toDetail(activity: FragmentActivity, listingId: Long)

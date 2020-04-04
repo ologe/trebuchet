@@ -6,8 +6,8 @@ import android.view.View
 import androidx.annotation.Keep
 import androidx.fragment.app.Fragment
 import dev.olog.core.dagger.injectable.InjectableComponent
-import dev.olog.core.dagger.subComponentBuilder
 import dev.olog.core.gateway.Repository
+import dev.olog.detail.dagger.inject
 import dev.olog.navigation.Params
 import kotlinx.android.synthetic.main.activity_detail.*
 import javax.inject.Inject
@@ -20,9 +20,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail),
     lateinit var repository: Repository
 
     override fun onAttach(context: Context) {
-        subComponentBuilder<DetailScreenDagger.DetailSubComponent.Factory>(context)
-            .create()
-            .inject(this)
+        inject()
         super.onAttach(context)
     }
 

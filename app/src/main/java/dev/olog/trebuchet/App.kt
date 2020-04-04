@@ -1,16 +1,16 @@
 package dev.olog.trebuchet
 
 import android.app.Application
-import dev.olog.core.dagger.SubComponentProvider
+import dev.olog.core.dagger.SubComponentFactoryProvider
 import dev.olog.core.dagger.injectable.Injectable
 import dev.olog.core.dagger.injectable.InjectableComponent
-import dev.olog.core.dagger.injectable.InjectableComponentsMap
+import dev.olog.core.dagger.injectable.InjectableComponentMap
 import javax.inject.Inject
 
-class App : Application(), SubComponentProvider {
+class App : Application(), SubComponentFactoryProvider {
 
     @Inject
-    lateinit var multibinds: InjectableComponentsMap
+    internal lateinit var componentFactoryMap: InjectableComponentMap
 
     override fun onCreate() {
         super.onCreate()
@@ -21,9 +21,9 @@ class App : Application(), SubComponentProvider {
     }
 
     @Suppress("UNCHECKED_CAST")
-    override fun <T : Injectable.Factory> subComponentBuilder(
+    override fun <T : Injectable.Factory> daggerFactory(
         component: InjectableComponent
     ): T {
-        return multibinds[component::class.java] as T
+        return componentFactoryMap[component::class.java] as T
     }
 }

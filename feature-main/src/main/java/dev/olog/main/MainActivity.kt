@@ -3,8 +3,8 @@ package dev.olog.main
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import dev.olog.core.dagger.injectable.InjectableComponent
-import dev.olog.core.dagger.subComponentBuilder
 import dev.olog.core.gateway.Repository
+import dev.olog.main.dagger.inject
 import dev.olog.navigation.Navigator
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
@@ -23,10 +23,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main),
     lateinit var navigator: Navigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        subComponentBuilder<MainScreenDagger.MainSubComponent.Factory>(this)
-            .create(this)
-            .inject(this)
-
+        inject()
         super.onCreate(savedInstanceState)
 
         repo.text = repository.toString()

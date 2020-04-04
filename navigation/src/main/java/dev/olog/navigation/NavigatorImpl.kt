@@ -9,6 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.snackbar.Snackbar
+import dev.olog.navigation.screens.ActivityScreen
+import dev.olog.navigation.screens.FragmentScreen
+import dev.olog.navigation.dagger.FragmentsMap
+import dev.olog.navigation.dagger.IntentsMap
 import javax.inject.Inject
 
 internal class NavigatorImpl @Inject constructor(
