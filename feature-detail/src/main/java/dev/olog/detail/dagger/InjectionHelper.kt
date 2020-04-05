@@ -1,18 +1,16 @@
 package dev.olog.detail.dagger
 
-import dev.olog.core.dagger.daggerFactory
 import dev.olog.detail.DetailActivity
 import dev.olog.detail.DetailFragment
-import dev.olog.detail.dagger.DetailScreenDagger.DetailActivitySubComponent
 
-internal fun DetailActivity.inject() {
-    daggerFactory<DetailActivitySubComponent.Factory>(this)
-        .create()
+internal fun DetailActivity.inject(shared: DetailScreenDagger.SharedComponent) {
+    shared.activityComponent()
+        .create(this)
         .inject(this)
 }
 
-internal fun DetailFragment.inject() {
-    daggerFactory<DetailScreenDagger.DetailFragmentSubComponent.Factory>(requireContext())
-        .create()
+internal fun DetailFragment.inject(shared: DetailScreenDagger.SharedComponent) {
+    shared.detailComponent()
+        .create(this)
         .inject(this)
 }

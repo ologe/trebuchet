@@ -20,13 +20,13 @@ class DetailFragment : Fragment(R.layout.fragment_detail),
     lateinit var repository: Repository
 
     override fun onAttach(context: Context) {
-        inject()
+        inject((requireActivity() as DetailActivity).sharedComponent)
         super.onAttach(context)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val id = arguments!!.getLong(Params.LISTING_ID)
+        val id = requireArguments().getLong(Params.LISTING_ID)
 
         listingId.text = "listing id $id"
         repo.text = repository.toString()

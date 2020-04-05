@@ -10,6 +10,7 @@ import dagger.multibindings.IntoMap
 import dev.olog.core.dagger.ApplicationContext
 import dev.olog.core.dagger.FeatureScope
 import dev.olog.core.dagger.injectable.Injectable
+import dev.olog.core.dagger.injectable.InjectableComponent
 import dev.olog.core.dagger.injectable.InjectableKey
 import dev.olog.detail.DetailActivity
 import dev.olog.detail.DetailFragment
@@ -25,49 +26,27 @@ class DetailScreenDagger {
 
     @Subcomponent
     @FeatureScope
-    internal interface DetailActivitySubComponent : Injectable<DetailActivity> {
+    internal interface SharedComponent : Injectable<DetailActivity> {
 
-        fun inject(fragment: DetailFragment)
+        fun activityComponent(): DetailActivitySubComponent.Factory
+        fun detailComponent(): DetailFragmentSubComponent.Factory
 
         @Subcomponent.Factory
         interface Factory : Injectable.Factory {
 
-            fun create(): DetailActivitySubComponent
+            fun create(): SharedComponent
 
         }
 
     }
 
-    @Subcomponent
-    @FeatureScope
-    internal interface DetailFragmentSubComponent : Injectable<DetailFragment> {
-
-        @Subcomponent.Factory
-        interface Factory : Injectable.Factory {
-
-            fun create(): DetailFragmentSubComponent
-
-        }
-
-    }
-
-    @Module(
-        subcomponents = [
-            DetailActivitySubComponent::class,
-            DetailFragmentSubComponent::class
-        ]
-    )
+    @Module(subcomponents = [SharedComponent::class])
     abstract class AppModule {
 
         @Binds
         @IntoMap
         @InjectableKey(DetailActivity::class)
-        internal abstract fun provideActivityFactory(factory: DetailActivitySubComponent.Factory): Injectable.Factory
-
-        @Binds
-        @IntoMap
-        @InjectableKey(DetailFragment::class)
-        internal abstract fun provideFragmentFactory(factory: DetailFragmentSubComponent.Factory): Injectable.Factory
+        internal abstract fun provideActivityFactory(factory: SharedComponent.Factory): Injectable.Factory
 
         companion object {
 
