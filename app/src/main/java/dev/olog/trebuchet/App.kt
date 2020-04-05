@@ -1,29 +1,11 @@
 package dev.olog.trebuchet
 
-import android.app.Application
-import dev.olog.core.dagger.SubComponentFactoryProvider
-import dev.olog.core.dagger.injectable.Injectable
-import dev.olog.core.dagger.injectable.InjectableComponent
-import dev.olog.core.dagger.injectable.InjectableComponentMap
-import javax.inject.Inject
+import dagger.android.AndroidInjector
+import dagger.android.support.DaggerApplication
 
-class App : Application(), SubComponentFactoryProvider {
+class App : DaggerApplication() {
 
-    @Inject
-    internal lateinit var componentFactoryMap: InjectableComponentMap
-
-    override fun onCreate() {
-        super.onCreate()
-
-        DaggerAppComponent.factory()
-            .create(this)
-            .inject(this)
-    }
-
-    @Suppress("UNCHECKED_CAST")
-    override fun <T : Injectable.Factory> daggerFactory(
-        component: InjectableComponent
-    ): T {
-        return componentFactoryMap[component::class.java] as T
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        return DaggerAppComponent.factory().create(this)
     }
 }

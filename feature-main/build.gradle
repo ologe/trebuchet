@@ -33,8 +33,12 @@ dependencies {
     implementation libs.kotlin
     implementation libs.coroutines
     implementation libs.coroutines_android
+
     implementation libs.dagger
     kapt libs.dagger_kapt
+    implementation libs.dagger_android
+    implementation libs.dagger_android_x
+    kapt libs.dagger_android_kapt
 
     implementation libs.x_appcompat
     implementation libs.x_core

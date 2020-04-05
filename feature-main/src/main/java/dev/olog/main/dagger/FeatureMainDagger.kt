@@ -2,29 +2,28 @@ package dev.olog.main.dagger
 
 import android.content.Context
 import android.content.Intent
-import dagger.*
+import dagger.Binds
+import dagger.Module
+import dagger.Provides
+import dagger.Subcomponent
+import dagger.android.AndroidInjector
+import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
 import dev.olog.core.dagger.ApplicationContext
 import dev.olog.core.dagger.FeatureScope
-import dev.olog.core.dagger.injectable.Injectable
-import dev.olog.core.dagger.injectable.InjectableKey
 import dev.olog.main.MainActivity
-import dev.olog.navigation.screens.ActivityScreen
 import dev.olog.navigation.dagger.ActivityScreenKey
+import dev.olog.navigation.screens.ActivityScreen
 
 // TODO this can be generated using any scripting language
 class FeatureMainDagger {
 
     @Subcomponent(modules = [MainActivityModule::class])
     @FeatureScope
-    internal interface MainSubComponent : Injectable<MainActivity> {
+    internal interface MainSubComponent : AndroidInjector<MainActivity> {
 
         @Subcomponent.Factory
-        interface Factory : Injectable.Factory {
-
-            fun create(@BindsInstance instance: MainActivity): MainSubComponent
-
-        }
+        interface Factory : AndroidInjector.Factory<MainActivity>
 
     }
 
@@ -33,8 +32,8 @@ class FeatureMainDagger {
 
         @Binds
         @IntoMap
-        @InjectableKey(MainActivity::class)
-        internal abstract fun provideFactory(factory: MainSubComponent.Factory): Injectable.Factory
+        @ClassKey(MainActivity::class)
+        internal abstract fun provideFactory(factory: MainSubComponent.Factory): AndroidInjector.Factory<*>
 
         companion object {
 

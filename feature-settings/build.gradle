@@ -33,12 +33,16 @@ dependencies {
     implementation libs.kotlin
     implementation libs.x_appcompat
     implementation libs.x_core
+    implementation libs.x_fragments
 
     implementation libs.coroutines
     implementation libs.coroutines_android
 
     implementation libs.dagger
     kapt libs.dagger_kapt
+    implementation libs.dagger_android
+    implementation libs.dagger_android_x
+    kapt libs.dagger_android_kapt
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

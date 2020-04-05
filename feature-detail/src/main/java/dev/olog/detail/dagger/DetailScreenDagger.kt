@@ -6,12 +6,11 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.Subcomponent
+import dagger.android.AndroidInjector
+import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
 import dev.olog.core.dagger.ApplicationContext
 import dev.olog.core.dagger.FeatureScope
-import dev.olog.core.dagger.injectable.Injectable
-import dev.olog.core.dagger.injectable.InjectableComponent
-import dev.olog.core.dagger.injectable.InjectableKey
 import dev.olog.detail.DetailActivity
 import dev.olog.detail.DetailFragment
 import dev.olog.navigation.dagger.ActivityScreenKey
@@ -24,19 +23,17 @@ import dev.olog.navigation.screens.FragmentScreen
 //  with a shared dagger.Component
 class DetailScreenDagger {
 
-    @Subcomponent
+    @Subcomponent(
+        modules = [
+            SharedDetailModule::class,
+            SubComponents::class
+        ]
+    )
     @FeatureScope
-    internal interface SharedComponent : Injectable<DetailActivity> {
-
-        fun activityComponent(): DetailActivitySubComponent.Factory
-        fun detailComponent(): DetailFragmentSubComponent.Factory
+    internal interface SharedComponent : AndroidInjector<DetailActivity> {
 
         @Subcomponent.Factory
-        interface Factory : Injectable.Factory {
-
-            fun create(): SharedComponent
-
-        }
+        interface Factory : AndroidInjector.Factory<DetailActivity>
 
     }
 
@@ -45,8 +42,8 @@ class DetailScreenDagger {
 
         @Binds
         @IntoMap
-        @InjectableKey(DetailActivity::class)
-        internal abstract fun provideActivityFactory(factory: SharedComponent.Factory): Injectable.Factory
+        @ClassKey(DetailActivity::class)
+        internal abstract fun provideActivityFactory(factory: SharedComponent.Factory): AndroidInjector.Factory<*>
 
         companion object {
 

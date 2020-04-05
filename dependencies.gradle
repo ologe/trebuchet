@@ -13,22 +13,25 @@ ext {
     def glide = '4.11.0'
 
     libs = [
-            kotlin            : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin",
-            dagger            : "com.google.dagger:dagger:$dagger",
-            dagger_kapt       : "com.google.dagger:dagger-compiler:$dagger",
+            kotlin             : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin",
+            dagger             : "com.google.dagger:dagger:$dagger",
+            dagger_kapt        : "com.google.dagger:dagger-compiler:$dagger",
+            dagger_android     : "com.google.dagger:dagger-android:$dagger",
+            dagger_android_x   : "com.google.dagger:dagger-android-support:$dagger",
+            dagger_android_kapt: "com.google.dagger:dagger-android-processor:$dagger",
 
-            coroutines        : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines",
-            coroutines_android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines",
+            coroutines         : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines",
+            coroutines_android : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines",
 
-            x_core            : "androidx.core:core-ktx:$x_core",
-            x_appcompat       : "androidx.appcompat:appcompat:$x_appcompat",
-            x_constraint      : "androidx.constraintlayout:constraintlayout:$x_constraint",
-            x_recycler        : "androidx.recyclerview:recyclerview:$x_recycler",
-            x_material        : "com.google.android.material:material:$x_material",
-            x_fragments       : "androidx.fragment:fragment-ktx:$x_fragments",
+            x_core             : "androidx.core:core-ktx:$x_core",
+            x_appcompat        : "androidx.appcompat:appcompat:$x_appcompat",
+            x_constraint       : "androidx.constraintlayout:constraintlayout:$x_constraint",
+            x_recycler         : "androidx.recyclerview:recyclerview:$x_recycler",
+            x_material         : "com.google.android.material:material:$x_material",
+            x_fragments        : "androidx.fragment:fragment-ktx:$x_fragments",
 
-            glide             : "com.github.bumptech.glide:glide:$glide",
+            glide              : "com.github.bumptech.glide:glide:$glide",
 
-            sql_helper        : "com.github.ologe:android-content-resolver-SQL:$sql_helper"
+            sql_helper         : "com.github.ologe:android-content-resolver-SQL:$sql_helper"
     ]
 }

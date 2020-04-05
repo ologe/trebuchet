@@ -59,6 +59,9 @@ dependencies {
 
     implementation libs.dagger
     kapt libs.dagger_kapt
+    implementation libs.dagger_android
+    implementation libs.dagger_android_x
+    kapt libs.dagger_android_kapt
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

@@ -1,16 +1,14 @@
 package dev.olog.main
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import dev.olog.core.dagger.injectable.InjectableComponent
+import dagger.android.support.DaggerAppCompatActivity
 import dev.olog.core.gateway.Repository
 import dev.olog.main.dagger.inject
 import dev.olog.navigation.Navigator
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(R.layout.activity_main),
-    InjectableComponent {
+class MainActivity : DaggerAppCompatActivity(R.layout.activity_main) {
 
     @Inject
     lateinit var repository: Repository

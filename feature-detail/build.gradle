@@ -42,6 +42,9 @@ dependencies {
     implementation libs.x_material
     implementation libs.x_constraint
     implementation libs.x_fragments
+    implementation libs.dagger_android
+    implementation libs.dagger_android_x
+    kapt libs.dagger_android_kapt
 
     // move to another module
     implementation libs.glide

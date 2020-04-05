@@ -1,7 +1,8 @@
 package dev.olog.trebuchet
 
-import dagger.BindsInstance
 import dagger.Component
+import dagger.android.AndroidInjectionModule
+import dagger.android.AndroidInjector
 import dev.olog.flavor.FlavorModule
 import dev.olog.navigation.NavigationModule
 import javax.inject.Singleton
@@ -10,19 +11,15 @@ import javax.inject.Singleton
     modules = [
         AppModule::class,
         FlavorModule::class,
-        NavigationModule::class
+        NavigationModule::class,
+
+        AndroidInjectionModule::class
     ]
 )
 @Singleton
-interface AppComponent {
-
-    fun inject(app: App)
+interface AppComponent : AndroidInjector<App> {
 
     @Component.Factory
-    interface Factory {
-
-        fun create(@BindsInstance app: App): AppComponent
-
-    }
+    interface Factory : AndroidInjector.Factory<App>
 
 }
