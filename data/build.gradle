@@ -26,13 +26,13 @@ android {
 }
 
 dependencies {
-    api project(':feature-main')
-    api project(':feature-detail')
-    api project(':feature-settings')
+    implementation project(':core')
 
     implementation libs.kotlin
+    implementation libs.coroutines
     implementation libs.dagger
     kapt libs.dagger_kapt
+    implementation libs.sql_helper
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

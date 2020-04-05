@@ -1,0 +1,34 @@
+ext {
+    def kotlin = kotlin_version
+    def dagger = '2.27'
+    def coroutines = '1.3.5'
+    def x_core = '1.2.0'
+    def x_appcompat = '1.1.0'
+    def x_constraint = '1.1.3'
+    def x_recycler = '1.1.0'
+    def x_material = '1.2.0-alpha05'
+    def sql_helper = '1.2.2'
+    def x_fragments = '1.2.4'
+
+    def glide = '4.11.0'
+
+    libs = [
+            kotlin            : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin",
+            dagger            : "com.google.dagger:dagger:$dagger",
+            dagger_kapt       : "com.google.dagger:dagger-compiler:$dagger",
+
+            coroutines        : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines",
+            coroutines_android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines",
+
+            x_core            : "androidx.core:core-ktx:$x_core",
+            x_appcompat       : "androidx.appcompat:appcompat:$x_appcompat",
+            x_constraint      : "androidx.constraintlayout:constraintlayout:$x_constraint",
+            x_recycler        : "androidx.recyclerview:recyclerview:$x_recycler",
+            x_material        : "com.google.android.material:material:$x_material",
+            x_fragments       : "androidx.fragment:fragment-ktx:$x_fragments",
+
+            glide             : "com.github.bumptech.glide:glide:$glide",
+
+            sql_helper        : "com.github.ologe:android-content-resolver-SQL:$sql_helper"
+    ]
+}

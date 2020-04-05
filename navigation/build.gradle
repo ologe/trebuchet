@@ -27,19 +27,16 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation libs.kotlin
 
-    def dagger = "2.27"
-    implementation "com.google.dagger:dagger:$dagger"
-    kapt "com.google.dagger:dagger-compiler:$dagger"
+    implementation libs.dagger
+    kapt libs.dagger_kapt
 
     // here just for simplicity, to show snackbar
-    implementation 'com.google.android.material:material:1.1.0'
+    implementation libs.x_material
+    implementation libs.x_core
 
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

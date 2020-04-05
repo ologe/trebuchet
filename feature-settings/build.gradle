@@ -30,16 +30,17 @@ dependencies {
     implementation project(":core")
     implementation project(":navigation")
 
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation libs.kotlin
+    implementation libs.x_appcompat
+    implementation libs.x_core
 
-    def dagger = "2.27"
-    implementation "com.google.dagger:dagger:$dagger"
-    kapt "com.google.dagger:dagger-compiler:$dagger"
+    implementation libs.coroutines
+    implementation libs.coroutines_android
 
-    testImplementation 'junit:junit:4.12'
+    implementation libs.dagger
+    kapt libs.dagger_kapt
+
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

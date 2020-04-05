@@ -20,11 +20,21 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+        maven { url 'https://jitpack.io' }
     }
+    gradle.projectsEvaluated { // TODO remove after coroutines became stable
+        tasks.withType(org.jetbrains.kotlin.gradle.tasks.AbstractKotlinCompile).all {
+            kotlinOptions.freeCompilerArgs += ["-Xuse-experimental=kotlinx.coroutines.FlowPreview"]
+            kotlinOptions.freeCompilerArgs += ["-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi"]
+            kotlinOptions.jvmTarget = "1.8"
+        }
+    }
+
 }
 
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+apply from: 'dependencies.gradle'

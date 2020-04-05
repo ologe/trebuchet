@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -26,13 +25,11 @@ android {
 }
 
 dependencies {
-    api project(':feature-main')
-    api project(':feature-detail')
-    api project(':feature-settings')
-
     implementation libs.kotlin
-    implementation libs.dagger
-    kapt libs.dagger_kapt
+
+    implementation libs.x_appcompat
+    implementation libs.x_core
+    implementation libs.x_material
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
