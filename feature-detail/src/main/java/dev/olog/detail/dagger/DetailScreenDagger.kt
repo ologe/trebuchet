@@ -2,6 +2,7 @@ package dev.olog.detail.dagger
 
 import android.content.Context
 import android.content.Intent
+import androidx.fragment.app.Fragment
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -14,7 +15,6 @@ import dev.olog.core.dagger.FeatureScope
 import dev.olog.detail.DetailActivity
 import dev.olog.detail.DetailFragment
 import dev.olog.navigation.dagger.ActivityScreenKey
-import dev.olog.navigation.dagger.FragmentContainer
 import dev.olog.navigation.dagger.FragmentScreenKey
 import dev.olog.navigation.screens.ActivityScreen
 import dev.olog.navigation.screens.FragmentScreen
@@ -57,7 +57,7 @@ class DetailScreenDagger {
             @IntoMap
             @Provides
             @FragmentScreenKey(FragmentScreen.DETAIL)
-            fun provideFragment(): FragmentContainer = DetailFragment::class.java
+            fun provideFragment(): Fragment = DetailFragment()
 
         }
 

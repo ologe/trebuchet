@@ -11,20 +11,19 @@ import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.snackbar.Snackbar
 import dev.olog.navigation.screens.ActivityScreen
 import dev.olog.navigation.screens.FragmentScreen
-import dev.olog.navigation.dagger.FragmentsMap
-import dev.olog.navigation.dagger.IntentsMap
 import javax.inject.Inject
+import javax.inject.Provider
 
 internal class NavigatorImpl @Inject constructor(
-    private val activitiesMap: IntentsMap,
-    private val fragmentsMap: FragmentsMap
+    private val activitiesMap: Map<ActivityScreen, @JvmSuppressWildcards Provider<Intent>>,
+    private val fragmentsMap: Map<FragmentScreen, @JvmSuppressWildcards Provider<Fragment>>
 ) : Navigator {
 
     override fun toDetail(
         activity: FragmentActivity,
         listingId: Long
     ) {
-        val intent = activitiesMap[ActivityScreen.DETAIL]
+        val intent = activitiesMap[ActivityScreen.DETAIL]?.get()
         val bundle = bundleOf(
             Params.LISTING_ID to listingId
         )
@@ -37,7 +36,7 @@ internal class NavigatorImpl @Inject constructor(
         listingId: Long,
         block: FragmentTransaction.(Fragment) -> FragmentTransaction
     ) {
-        val fragment = fragmentsMap[FragmentScreen.DETAIL]?.newInstance()
+        val fragment = fragmentsMap[FragmentScreen.DETAIL]?.get()
         fragment?.arguments = bundleOf(
             Params.LISTING_ID to listingId
         )
@@ -45,7 +44,7 @@ internal class NavigatorImpl @Inject constructor(
     }
 
     override fun toSettings(activity: FragmentActivity) {
-        val intent = activitiesMap[ActivityScreen.SETTINGS]
+        val intent = activitiesMap[ActivityScreen.SETTINGS]?.get()
         startActivity(activity, intent)
     }
 
