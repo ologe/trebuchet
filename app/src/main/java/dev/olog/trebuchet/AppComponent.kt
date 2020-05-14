@@ -16,6 +16,7 @@ import javax.inject.Singleton
         // data
         DataModule::class,
 
+        // features
         NavigationModule::class,
         AndroidInjectionModule::class
     ]
