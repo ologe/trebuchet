@@ -5,4 +5,4 @@ import dagger.Module
         dev.olog.feature.main.dagger.FeatureMainDagger.AppModule::class
     ]
 )
-class FeaturesModule
+class FlavorModule

@@ -18,13 +18,13 @@ private const val DAGGER_FILE_SUFFIX = "Dagger.kt"
 private const val DAGGER_CLASS_SUFFIX = "Dagger"
 private const val APP_MODULE = "AppModule"
 private const val SRC_DIR = "src/main/java"
-private const val FEATURE_MODULE_FILE = "FeaturesModule.kt"
+private const val FLAVOR_MODULE_FILE = "FlavorModule.kt"
 
 /**
  * 1) Look for api dependencies
  * 2) For each dependent sub-project, search for files with [DAGGER_FILE_SUFFIX],
  *      and builds package-name.class-name.AppModule
- * 3) Recreates `FeaturesModule.kt` with the updated modules dependencies
+ * 3) Recreates `FlavorModule.kt` with the updated modules dependencies
  */
 class DynamicFlavorPlugin : Plugin<Project> {
 
@@ -80,9 +80,9 @@ class DynamicFlavorPlugin : Plugin<Project> {
 
         val sources = File(project.projectDir, SRC_DIR)
 
-        val moduleFile = sources.walk().find { it.name == FEATURE_MODULE_FILE }
+        val moduleFile = sources.walk().find { it.name == FLAVOR_MODULE_FILE }
         if (moduleFile == null) {
-            println("$FEATURE_MODULE_FILE not found")
+            println("$FLAVOR_MODULE_FILE not found")
             return
         }
 
