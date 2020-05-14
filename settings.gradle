@@ -1,3 +1,4 @@
+include ':flavor-dynamic'
 include ':shared-android'
 include ':feature-presentation-base'
 rootProject.name='Trebuchet'
