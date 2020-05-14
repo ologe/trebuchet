@@ -16,7 +16,6 @@ class UserLoginUseCase @Inject constructor(
 
     fun logout() {
         gateway.logout()
-
     }
 
 }
