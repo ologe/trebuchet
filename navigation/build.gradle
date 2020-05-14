@@ -27,6 +27,8 @@ android {
 }
 
 dependencies {
+    implementation project(':domain')
+
     implementation libs.kotlin
 
     implementation libs.dagger
@@ -35,6 +37,7 @@ dependencies {
     // here just for simplicity, to show snackbar
     implementation libs.x_material
     implementation libs.x_core
+    implementation libs.x_fragments
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

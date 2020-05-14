@@ -3,6 +3,7 @@ package dev.olog.trebuchet
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
+import dev.olog.data.DataModule
 import dev.olog.flavor.FlavorModule
 import dev.olog.navigation.NavigationModule
 import javax.inject.Singleton
@@ -11,8 +12,11 @@ import javax.inject.Singleton
     modules = [
         AppModule::class,
         FlavorModule::class,
-        NavigationModule::class,
 
+        // data
+        DataModule::class,
+
+        NavigationModule::class,
         AndroidInjectionModule::class
     ]
 )

@@ -28,7 +28,10 @@ android {
 
 dependencies {
     implementation project(":core")
+    implementation project(":domain")
     implementation project(":navigation")
+    implementation project(":feature-presentation-base")
+    implementation project(":shared-android")
 
     implementation libs.kotlin
     implementation libs.coroutines

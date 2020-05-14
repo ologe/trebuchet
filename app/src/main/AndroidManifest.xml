@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.olog.trebuchet">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +14,7 @@
         android:name=".App">
 
 <!--        keep here the main activity to avoid breaking `configuration`-->
-        <activity android:name="dev.olog.main.MainActivity">
+        <activity android:name="dev.olog.feature.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,5 +1,6 @@
 package dev.olog.navigation
 
 object Params {
-    const val LISTING_ID = "listing_id"
+    const val REPO = "repo"
+    const val TRANSITION_NAME = "transition"
 }

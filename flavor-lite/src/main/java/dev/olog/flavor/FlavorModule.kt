@@ -1,13 +1,15 @@
 package dev.olog.flavor
 
 import dagger.Module
-import dev.olog.detail.dagger.DetailScreenDagger
-import dev.olog.main.dagger.FeatureMainDagger
+import dev.olog.feature.detail.dagger.FeatureDetailDagger
+import dev.olog.feature.login.dagger.FeatureLoginDagger
+import dev.olog.feature.main.dagger.FeatureMainDagger
 
 @Module(
     includes = [
+        FeatureLoginDagger.AppModule::class,
         FeatureMainDagger.AppModule::class,
-        DetailScreenDagger.AppModule::class
+        FeatureDetailDagger.AppModule::class
     ]
 )
 abstract class FlavorModule

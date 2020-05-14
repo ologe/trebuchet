@@ -1,18 +1,16 @@
 package dev.olog.navigation
 
-import androidx.fragment.app.Fragment
+import android.view.View
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentTransaction
+import dev.olog.domain.entity.GithubRepo
 
 interface Navigator {
 
-    fun toDetail(activity: FragmentActivity, listingId: Long)
+    fun toLogin(activity: FragmentActivity)
 
-    fun toDetailFragment(
-        activity: FragmentActivity,
-        listingId: Long,
-        block: FragmentTransaction.(Fragment) -> FragmentTransaction
-    )
+    fun toMain(activity: FragmentActivity)
+
+    fun toDetail(activity: FragmentActivity, repo: GithubRepo, view: View)
 
     fun toSettings(activity: FragmentActivity)
 
