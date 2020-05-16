@@ -14,11 +14,12 @@ class LoginFragment : DaggerFragment(R.layout.fragment_login) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         login.setOnClickListener {
             if (username.text.isNotBlank() && password.text.isNotBlank()) {
-                controller.login(
-                    requireActivity(),
-                    username.text.toString(),
-                    password.text.toString()
-                )
+                with(controller) {
+                    login(
+                        username.text.toString(),
+                        password.text.toString()
+                    )
+                }
             }
         }
     }

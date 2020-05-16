@@ -1,6 +1,6 @@
 package dev.olog.feature.login
 
-import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.Fragment
 import dev.olog.domain.entity.User
 import dev.olog.domain.interactor.UserLoginUseCase
 import dev.olog.navigation.Navigator
@@ -11,9 +11,11 @@ class LoginController @Inject constructor(
     private val navigator: Navigator
 ) {
 
-    fun login(activity: FragmentActivity, username: String, password: String) {
+    fun Fragment.login(username: String, password: String) {
         userLoginUseCase.login(User(username, password))
-        navigator.toMain(activity)
+        with(navigator) {
+            requireActivity().toMain()
+        }
     }
 
 }

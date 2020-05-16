@@ -32,16 +32,18 @@ internal class MainFragment : DaggerFragment(R.layout.fragment_main) {
             popup.inflate(R.menu.overflow)
             popup.setOnMenuItemClickListener {
                 when (it.itemId) {
-                    R.id.settings -> controller.navigateToSettings(requireActivity())
-                    R.id.logout -> controller.logout(requireActivity())
+                    R.id.settings -> with(controller) { navigateToSettings() }
+                    R.id.logout -> with(controller) { logout() }
                 }
+
                 false // should be true but the emulator don't dismiss the popup
+
             }
             popup.show()
         }
 
         val adapter = MainFragmentAdapter { repo, v ->
-            controller.navigateToDetail(requireActivity(), repo, v)
+            with(controller) { navigateToDetail(repo, v) }
         }
         list.adapter = adapter
         list.layoutManager = LinearLayoutManager(requireContext())

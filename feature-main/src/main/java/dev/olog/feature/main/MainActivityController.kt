@@ -12,12 +12,12 @@ internal class MainActivityController @Inject constructor(
 
     fun isLogged() = userLoginUseCase.isLogged()
 
-    fun navigateToLogin(activity: FragmentActivity) {
-        navigator.toLogin(activity)
+    fun FragmentActivity.navigateToLogin() = with(navigator) {
+        toLogin()
     }
 
-    fun navigateToMain(activity: FragmentActivity) {
-        navigator.toMain(activity)
+    fun FragmentActivity.navigateToMain() = with(navigator) {
+        toMain()
     }
 
 }

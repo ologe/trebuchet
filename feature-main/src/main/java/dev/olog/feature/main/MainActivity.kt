@@ -14,13 +14,14 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
 
         if (savedInstanceState == null) {
-            if (controller.isLogged()) {
-                controller.navigateToMain(this)
-            } else {
-                controller.navigateToLogin(this)
+            with(controller) {
+                if (isLogged()) {
+                    navigateToMain()
+                } else {
+                    navigateToLogin()
+                }
             }
         }
-
     }
 
 }

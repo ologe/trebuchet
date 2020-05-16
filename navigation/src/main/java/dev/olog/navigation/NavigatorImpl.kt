@@ -10,9 +10,9 @@ import dev.olog.navigation.extensions.getTopFragment
 import dev.olog.navigation.screens.ActivityScreen
 import dev.olog.navigation.screens.FragmentScreen
 import dev.olog.navigation.transition.setupEnterFadeAnimation
-import dev.olog.navigation.transition.setupExitSharedAnimation
 import dev.olog.navigation.transition.setupEnterSharedAnimation
 import dev.olog.navigation.transition.setupExitFadeAnimation
+import dev.olog.navigation.transition.setupExitSharedAnimation
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -21,32 +21,32 @@ internal class NavigatorImpl @Inject constructor(
     private val fragments: Map<FragmentScreen, @JvmSuppressWildcards Provider<Fragment>>
 ) : BaseNavigator(), Navigator {
 
-    override fun toLogin(activity: FragmentActivity) {
-        val currentFragment = activity.supportFragmentManager.getTopFragment()
-        currentFragment?.setupExitFadeAnimation(activity)
+    override fun FragmentActivity.toLogin() {
+        val currentFragment = supportFragmentManager.getTopFragment()
+        currentFragment?.setupExitFadeAnimation(this)
 
         val fragment = fragments[FragmentScreen.LOGIN]?.get()
-        fragment?.setupEnterFadeAnimation(activity)
+        fragment?.setupEnterFadeAnimation(this)
 
         val tag = FragmentScreen.LOGIN.tag
-        replaceFragment(activity, fragment, tag, R.id.fragmentContainer, forced = true)
+        replaceFragment(this, fragment, tag, R.id.fragmentContainer, forced = true)
     }
 
-    override fun toMain(activity: FragmentActivity) {
-        val currentFragment = activity.supportFragmentManager.getTopFragment()
-        currentFragment?.setupExitFadeAnimation(activity)
+    override fun FragmentActivity.toMain() {
+        val currentFragment = supportFragmentManager.getTopFragment()
+        currentFragment?.setupExitFadeAnimation(this)
 
         val fragment = fragments[FragmentScreen.MAIN]?.get()
-        fragment?.setupEnterFadeAnimation(activity)
+        fragment?.setupEnterFadeAnimation(this)
 
         val tag = FragmentScreen.MAIN.tag
-        replaceFragment(activity, fragment, tag, R.id.fragmentContainer, forced = true) {
+        replaceFragment(this, fragment, tag, R.id.fragmentContainer, forced = true) {
             setReorderingAllowed(true)
         }
     }
 
-    override fun toDetail(activity: FragmentActivity, repo: GithubRepo, view: View) {
-        val currentFragment = activity.supportFragmentManager.getTopFragment()
+    override fun FragmentActivity.toDetail(repo: GithubRepo, view: View) {
+        val currentFragment = supportFragmentManager.getTopFragment()
         currentFragment?.setupExitSharedAnimation()
 
         val fragment = fragments[FragmentScreen.DETAIL]?.get()
@@ -55,17 +55,17 @@ internal class NavigatorImpl @Inject constructor(
             Params.TRANSITION_NAME to view.transitionName
         )
         val tag = FragmentScreen.DETAIL.tag
-        fragment?.setupEnterSharedAnimation(activity)
-        replaceFragment(activity, fragment, tag, R.id.fragmentContainer, forced = false) {
+        fragment?.setupEnterSharedAnimation(this)
+        replaceFragment(this, fragment, tag, R.id.fragmentContainer, forced = false) {
             setReorderingAllowed(true)
             addToBackStack(tag)
             addSharedElement(view, view.transitionName)
         }
     }
 
-    override fun toSettings(activity: FragmentActivity) {
+    override fun FragmentActivity.toSettings() {
         val intent = intents[ActivityScreen.SETTINGS]?.get()
-        startActivity(activity, intent)
+        startActivity(this, intent)
     }
 
 }

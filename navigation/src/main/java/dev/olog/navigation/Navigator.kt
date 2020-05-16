@@ -6,12 +6,12 @@ import dev.olog.domain.entity.GithubRepo
 
 interface Navigator {
 
-    fun toLogin(activity: FragmentActivity)
+    fun FragmentActivity.toLogin()
 
-    fun toMain(activity: FragmentActivity)
+    fun FragmentActivity.toMain()
 
-    fun toDetail(activity: FragmentActivity, repo: GithubRepo, view: View)
+    fun FragmentActivity.toDetail(repo: GithubRepo, view: View)
 
-    fun toSettings(activity: FragmentActivity)
+    fun FragmentActivity.toSettings()
 
 }

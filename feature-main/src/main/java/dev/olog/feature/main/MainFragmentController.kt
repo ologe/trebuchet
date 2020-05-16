@@ -1,7 +1,7 @@
 package dev.olog.feature.main
 
 import android.view.View
-import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.Fragment
 import dev.olog.domain.entity.GithubRepo
 import dev.olog.domain.interactor.ObserveRepositoriesUseCase
 import dev.olog.domain.interactor.UserLoginUseCase
@@ -17,17 +17,15 @@ internal class MainFragmentController @Inject constructor(
 
     fun observeRepositories(): Flow<List<GithubRepo>> = observeRepositoriesUseCase()
 
-    fun logout(activity: FragmentActivity) {
+    fun Fragment.logout() {
         userLoginUseCase.logout()
-        navigator.toLogin(activity)
+        with(navigator) { requireActivity().toLogin() }
     }
 
-    fun navigateToSettings(activity: FragmentActivity) {
-        navigator.toSettings(activity)
-    }
+    fun Fragment.navigateToSettings() = with(navigator) { requireActivity().toSettings() }
 
-    fun navigateToDetail(activity: FragmentActivity, repo: GithubRepo, view: View) {
-        navigator.toDetail(activity, repo, view)
+    fun Fragment.navigateToDetail(repo: GithubRepo, view: View) = with(navigator) {
+        requireActivity().toDetail(repo, view)
     }
 
 }
