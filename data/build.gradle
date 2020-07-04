@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
@@ -35,13 +36,15 @@ android {
 }
 
 dependencies {
-    implementation project(':core')
     implementation project(':domain')
 
     implementation libs.kotlin
+    implementation libs.coroutines
+    
     implementation libs.dagger
     kapt libs.dagger_kapt
-    implementation libs.coroutines
+    implementation libs.dagger_hilt
+    kapt libs.dagger_hilt_kapt
 
     implementation "org.eclipse.mylyn.github:org.eclipse.egit.github.core:2.1.5"
 

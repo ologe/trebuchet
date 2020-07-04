@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion 29
@@ -33,6 +34,8 @@ dependencies {
 
     implementation libs.dagger
     kapt libs.dagger_kapt
+    implementation libs.dagger_hilt
+    kapt libs.dagger_hilt_kapt
 
     // here just for simplicity, to show snackbar
     implementation libs.x_material

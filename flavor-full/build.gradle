@@ -26,7 +26,6 @@ android {
 }
 
 dependencies {
-    api project(':feature-login')
     api project(':feature-main')
     api project(':feature-detail')
     api project(':feature-settings')

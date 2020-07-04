@@ -11,6 +11,5 @@ class FlavorOptions {
 
 project.ext.flavors = [
         full   : new FlavorOptions(":flavor-full", false),
-        dynamic: new FlavorOptions(":flavor-dynamic", true),
         lite   : new FlavorOptions(":flavor-lite", true),
 ]

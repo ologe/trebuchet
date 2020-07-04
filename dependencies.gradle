@@ -1,37 +1,37 @@
 ext {
     def kotlin = kotlin_version
-    def dagger = '2.27'
+    def dagger = '2.28.1'
+    def dagger_hilt = "$dagger-alpha" // TODO keep in sync with gradle plugin
+    def dagger_hilt_x = "1.0.0-alpha01"
     def coroutines = '1.3.5'
     def x_core = '1.2.0'
     def x_appcompat = '1.1.0'
     def x_constraint = '1.1.3'
     def x_recycler = '1.1.0'
-    def x_material = '1.2.0-alpha06'
-    def sql_helper = '1.2.2'
+    def x_material = '1.2.0-beta01'
     def x_fragments = '1.2.4'
 
     def glide = '4.11.0'
 
     libs = [
-            kotlin             : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin",
-            dagger             : "com.google.dagger:dagger:$dagger",
-            dagger_kapt        : "com.google.dagger:dagger-compiler:$dagger",
-            dagger_android     : "com.google.dagger:dagger-android:$dagger",
-            dagger_android_x   : "com.google.dagger:dagger-android-support:$dagger",
-            dagger_android_kapt: "com.google.dagger:dagger-android-processor:$dagger",
+            kotlin            : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin",
+            dagger            : "com.google.dagger:dagger:$dagger",
+            dagger_kapt       : "com.google.dagger:dagger-compiler:$dagger",
+            dagger_hilt       : "com.google.dagger:hilt-android:$dagger_hilt",
+            dagger_hilt_kapt  : "com.google.dagger:hilt-android-compiler:$dagger_hilt",
+            dagger_hilt_x     : "androidx.hilt:hilt-lifecycle-viewmodel:$dagger_hilt_x",
+            dagger_hilt_x_kapt: "androidx.hilt:hilt-compiler:$dagger_hilt_x",
 
-            coroutines         : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines",
-            coroutines_android : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines",
+            coroutines        : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines",
+            coroutines_android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines",
 
-            x_core             : "androidx.core:core-ktx:$x_core",
-            x_appcompat        : "androidx.appcompat:appcompat:$x_appcompat",
-            x_constraint       : "androidx.constraintlayout:constraintlayout:$x_constraint",
-            x_recycler         : "androidx.recyclerview:recyclerview:$x_recycler",
-            x_material         : "com.google.android.material:material:$x_material",
-            x_fragments        : "androidx.fragment:fragment-ktx:$x_fragments",
+            x_core            : "androidx.core:core-ktx:$x_core",
+            x_appcompat       : "androidx.appcompat:appcompat:$x_appcompat",
+            x_constraint      : "androidx.constraintlayout:constraintlayout:$x_constraint",
+            x_recycler        : "androidx.recyclerview:recyclerview:$x_recycler",
+            x_material        : "com.google.android.material:material:$x_material",
+            x_fragments       : "androidx.fragment:fragment-ktx:$x_fragments",
 
-            glide              : "com.github.bumptech.glide:glide:$glide",
-
-            sql_helper         : "com.github.ologe:android-content-resolver-SQL:$sql_helper"
+            glide             : "com.github.bumptech.glide:glide:$glide"
     ]
 }

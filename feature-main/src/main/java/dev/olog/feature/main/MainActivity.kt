@@ -1,23 +1,24 @@
 package dev.olog.feature.main
 
 import android.os.Bundle
+import androidx.activity.viewModels
+import dagger.hilt.android.AndroidEntryPoint
 import dev.olog.feature.presentation.base.BaseActivity
-import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity() {
 
-    @Inject
-    internal lateinit var controller: MainActivityController
+    private val viewModel: MainActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         if (savedInstanceState == null) {
-            if (controller.isLogged()) {
-                controller.navigateToMain(this)
+            if (viewModel.isLogged()) {
+                viewModel.navigateToMain(this)
             } else {
-                controller.navigateToLogin(this)
+                viewModel.navigateToLogin(this)
             }
         }
 

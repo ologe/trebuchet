@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 apply from: '../flavors.gradle'
 
 android {
@@ -47,7 +48,6 @@ android {
 }
 
 dependencies {
-    implementation project(':core')
     implementation project(':domain')
     implementation project(':navigation')
     implementation project(':data')
@@ -62,9 +62,10 @@ dependencies {
 
     implementation libs.dagger
     kapt libs.dagger_kapt
-    implementation libs.dagger_android
-    implementation libs.dagger_android_x
-    kapt libs.dagger_android_kapt
+    implementation libs.dagger_hilt
+    kapt libs.dagger_hilt_kapt
+    implementation libs.dagger_hilt_x
+    kapt libs.dagger_hilt_x_kapt
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

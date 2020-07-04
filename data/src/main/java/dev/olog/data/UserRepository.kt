@@ -1,7 +1,7 @@
 package dev.olog.data
 
 import android.content.Context
-import dev.olog.core.dagger.ApplicationContext
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.olog.data.utils.observeKey
 import dev.olog.domain.entity.User
 import dev.olog.domain.gateway.UserGateway

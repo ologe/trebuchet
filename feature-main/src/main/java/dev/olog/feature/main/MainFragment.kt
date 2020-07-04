@@ -4,18 +4,19 @@ import android.os.Bundle
 import android.view.View
 import android.widget.PopupMenu
 import androidx.core.view.doOnPreDraw
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import dagger.android.support.DaggerFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import javax.inject.Inject
 
-internal class MainFragment : DaggerFragment(R.layout.fragment_main) {
+@AndroidEntryPoint
+internal class MainFragment : Fragment(R.layout.fragment_main) {
 
-    @Inject
-    lateinit var controller: MainFragmentController
+    private val viewModel: MainFragmentViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,8 +33,8 @@ internal class MainFragment : DaggerFragment(R.layout.fragment_main) {
             popup.inflate(R.menu.overflow)
             popup.setOnMenuItemClickListener {
                 when (it.itemId) {
-                    R.id.settings -> controller.navigateToSettings(requireActivity())
-                    R.id.logout -> controller.logout(requireActivity())
+                    R.id.settings -> viewModel.navigateToSettings(requireActivity())
+                    R.id.logout -> viewModel.logout(requireActivity())
                 }
                 false // should be true but the emulator don't dismiss the popup
             }
@@ -41,12 +42,12 @@ internal class MainFragment : DaggerFragment(R.layout.fragment_main) {
         }
 
         val adapter = MainFragmentAdapter { repo, v ->
-            controller.navigateToDetail(requireActivity(), repo, v)
+            viewModel.navigateToDetail(requireActivity(), repo, v)
         }
         list.adapter = adapter
         list.layoutManager = LinearLayoutManager(requireContext())
 
-        controller.observeRepositories()
+        viewModel.observeRepositories()
             .onEach {
                 adapter.submitList(it)
             }.launchIn(viewLifecycleOwner.lifecycleScope)

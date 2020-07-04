@@ -22,7 +22,7 @@ internal class GithubRepository @Inject constructor(
 
     private fun buildClient(user: User): GitHubClient {
         return GitHubClient().apply {
-            setOAuth2Token(BuildConfig.GITHUB_TOKEN)
+            setOAuth2Token("remove this")
         }
     }
 

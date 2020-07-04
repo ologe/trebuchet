@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -25,7 +26,6 @@ android {
 }
 
 dependencies {
-    implementation project(":core")
     implementation project(":domain")
     implementation project(":navigation")
     implementation project(":shared-android")
@@ -33,6 +33,7 @@ dependencies {
     implementation libs.kotlin
     implementation libs.coroutines
     implementation libs.coroutines_android
+
     implementation libs.dagger
     kapt libs.dagger_kapt
 
@@ -42,9 +43,6 @@ dependencies {
     implementation libs.x_material
     implementation libs.x_constraint
     implementation libs.x_fragments
-    implementation libs.dagger_android
-    implementation libs.dagger_android_x
-    kapt libs.dagger_android_kapt
 
     // move to another module
     implementation libs.glide

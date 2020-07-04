@@ -10,7 +10,7 @@ import dev.olog.navigation.R
 import dev.olog.navigation.extensions.themeAttributeToColor
 
 fun Fragment.setupExitFadeAnimation(context: Context) {
-    val transition = MaterialFadeThrough.create().apply {
+    val transition = MaterialFadeThrough().apply {
         duration = context.resources.getInteger(R.integer.transition_default_duration).toLong()
     }
     exitTransition = transition
@@ -18,7 +18,7 @@ fun Fragment.setupExitFadeAnimation(context: Context) {
 }
 
 fun Fragment.setupEnterFadeAnimation(context: Context) {
-    val transition = MaterialFadeThrough.create().apply {
+    val transition = MaterialFadeThrough().apply {
         duration = context.resources.getInteger(R.integer.transition_default_duration).toLong()
     }
     enterTransition = transition
@@ -29,10 +29,10 @@ fun Fragment.setupExitSharedAxisAnimation(
     context: Context,
     @MaterialSharedAxis.Axis axis: Int
 ) {
-    reenterTransition = MaterialSharedAxis.create(axis, false).apply {
+    reenterTransition = MaterialSharedAxis(axis, false).apply {
         duration = context.resources.getInteger(R.integer.transition_default_duration).toLong()
     }
-    exitTransition = MaterialSharedAxis.create(axis, true).apply {
+    exitTransition = MaterialSharedAxis(axis, true).apply {
         duration = context.resources.getInteger(R.integer.transition_default_duration).toLong()
     }
 }
@@ -41,10 +41,10 @@ fun Fragment.setupEnterSharedAxisAnimation(
     context: Context,
     @MaterialSharedAxis.Axis axis: Int
 ) {
-    enterTransition = MaterialSharedAxis.create(axis, true).apply {
+    enterTransition = MaterialSharedAxis(axis, true).apply {
         duration = context.resources.getInteger(R.integer.transition_default_duration).toLong()
     }
-    returnTransition = MaterialSharedAxis.create(axis, false).apply {
+    returnTransition = MaterialSharedAxis(axis, false).apply {
         duration = context.resources.getInteger(R.integer.transition_default_duration).toLong()
     }
 }
