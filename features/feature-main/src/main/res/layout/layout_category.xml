@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/item_search">
 
     <ImageView
+        android:id="@+id/rightIcon"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:layout_gravity="center_vertical|end"
         android:src="@drawable/vd_pokeball"
         android:translationX="15dp"
-        app:tint="#9eee" />
+        app:tint="#4eee" />
 
     <ImageView
+        android:id="@+id/leftIcon"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:layout_gravity="center_vertical"
         android:src="@drawable/vd_pokeball"
         android:translationX="-65dp"
         android:translationY="-45dp"
-        app:tint="#dfff"  />
+        app:tint="#4eee"  />
 
     <TextView
         android:id="@+id/description"

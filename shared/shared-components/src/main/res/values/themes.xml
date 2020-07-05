@@ -3,7 +3,7 @@
     <style name="AppTheme" parent="Theme.Platform">
         <item name="colorPrimary">@color/white_50</item>
         <item name="colorSecondary">@color/indigo_400</item>
-        <item name="android:colorBackground">@color/white_50</item>
+        <item name="android:colorBackground">@color/gray_100</item>
         <item name="colorSurface">@color/white_50</item>
         <item name="colorError">@color/red_600</item>
 

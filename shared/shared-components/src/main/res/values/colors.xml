@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="white_50">@android:color/white</color>
+    <color name="gray_100">#f4f4f4</color>
 
     <color name="indigo_400">#3D5AFE</color>
 
