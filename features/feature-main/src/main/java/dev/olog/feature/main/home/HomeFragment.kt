@@ -7,7 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import dev.olog.feature.main.R
-import dev.olog.shared.android.lazyFast
+import dev.olog.shared.lazyFast
 import kotlinx.android.synthetic.main.fragment_home.*
 
 @AndroidEntryPoint

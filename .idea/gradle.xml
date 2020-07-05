@@ -22,6 +22,7 @@
             <option value="$PROJECT_DIR$/flavors/flavor-lite" />
             <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/shared" />
+            <option value="$PROJECT_DIR$/shared/shared" />
             <option value="$PROJECT_DIR$/shared/shared-android" />
             <option value="$PROJECT_DIR$/shared/shared-components" />
           </set>

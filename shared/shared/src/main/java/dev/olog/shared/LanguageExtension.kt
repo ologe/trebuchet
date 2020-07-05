@@ -1,4 +1,4 @@
-package dev.olog.shared.android
+package dev.olog.shared
 
 // TODO move to :shared
 
