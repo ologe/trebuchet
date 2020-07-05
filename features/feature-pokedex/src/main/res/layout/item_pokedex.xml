@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    app:cardCornerRadius="12dp"
+    tools:cardBackgroundColor="@android:color/holo_red_light"
+    tools:layout_width="200dp"
+    android:id="@+id/content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/vd_pokeball"
+            android:translationX="15dp"
+            android:translationY="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="#7fff" />
+
+        <ImageView
+            android:id="@+id/sprite"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:background="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-black"
+            android:padding="8dp"
+            android:textAppearance="?textAppearanceSubtitle1"
+            android:textColor="?android:textColorPrimaryInverse"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Bulbasaur" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/type1"
+            style="@style/TypeChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            app:chipSurfaceColor="#7fff"
+            app:layout_constraintStart_toStartOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            tools:text="Grass" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/type2"
+            style="@style/TypeChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chipSurfaceColor="#7fff"
+            app:layout_constraintStart_toStartOf="@id/type1"
+            app:layout_constraintTop_toBottomOf="@+id/type1"
+            tools:text="Poison" />
+
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha=".4"
+            android:fontFamily="sans-serif-black"
+            android:padding="8dp"
+            android:textAppearance="?textAppearanceHeadline6"
+            android:textColor="?android:textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="#001" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

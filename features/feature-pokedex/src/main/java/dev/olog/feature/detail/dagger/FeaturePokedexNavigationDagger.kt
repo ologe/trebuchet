@@ -6,7 +6,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.multibindings.IntoMap
-import dev.olog.feature.detail.PokedexFragment
+import dev.olog.feature.detail.list.PokedexFragment
 import dev.olog.navigation.dagger.FragmentScreenKey
 import dev.olog.navigation.screens.FragmentScreen
 

@@ -2,7 +2,7 @@ package dev.olog.navigation
 
 import android.content.Intent
 import androidx.fragment.app.Fragment
-import dev.olog.navigation.extensions.getTopFragment
+import dev.olog.navigation.extensions.topFragment
 import dev.olog.navigation.screens.ActivityScreen
 import dev.olog.navigation.screens.FragmentScreen
 import dev.olog.navigation.transition.setupEnterFadeAnimation
@@ -16,38 +16,45 @@ internal class NavigatorImpl @Inject constructor(
     private val fragments: Map<FragmentScreen, @JvmSuppressWildcards Provider<Fragment>>
 ) : BaseNavigator(), Navigator {
 
-    override fun toHome() {
-        val activity = activityProvider() ?: return
-
-        val currentFragment = activity.supportFragmentManager.getTopFragment()
-        currentFragment?.setupExitFadeAnimation(activity)
-
-        val fragment = fragments[FragmentScreen.HOME]?.get()
-        fragment?.setupEnterFadeAnimation(activity)
-
-        val tag = FragmentScreen.HOME.tag
-        replaceFragment(activity, fragment, tag, R.id.fragmentContainer, forced = true) {
-            setReorderingAllowed(true)
-        }
+    override fun toPokedex() {
+        navigateTo(FragmentScreen.POKEDEX)
     }
 
-//    override fun toDetail(activity: FragmentActivity, repo: GithubRepo, view: View) {
-//        val currentFragment = activity.supportFragmentManager.getTopFragment()
-//        currentFragment?.setupExitSharedAnimation()
-//
-//        val fragment = fragments[FragmentScreen.DETAIL]?.get()
-//        fragment?.arguments = bundleOf(
-//            Params.REPO to repo,
-//            Params.TRANSITION_NAME to view.transitionName
-//        )
-//        val tag = FragmentScreen.DETAIL.tag
-//        fragment?.setupEnterSharedAnimation(activity)
-//        replaceFragment(activity, fragment, tag, R.id.fragmentContainer, forced = false) {
-//            setReorderingAllowed(true)
-//            addToBackStack(tag)
-//            addSharedElement(view, view.transitionName)
-//        }
-//    }
+    override fun toMoves() {
+        navigateTo(FragmentScreen.MOVES)
+    }
+
+    override fun toAbilities() {
+        navigateTo(FragmentScreen.ABILITIES)
+    }
+
+    override fun toItems() {
+        navigateTo(FragmentScreen.ITEMS)
+    }
+
+    override fun toLocations() {
+        navigateTo(FragmentScreen.LOCATIONS)
+    }
+
+    override fun toTypeCharts() {
+        navigateTo(FragmentScreen.TYPE_CHARTS)
+    }
+
+    private fun navigateTo(screen: FragmentScreen) {
+        val activity = activityProvider() ?: return
+        activity.supportFragmentManager.topFragment?.setupExitFadeAnimation(activity)
+
+        val fragment = fragments[screen]?.get()
+        fragment?.setupEnterFadeAnimation(activity)
+
+        replaceFragment(
+            activity = activity,
+            fragment = fragment,
+            tag = screen.tag
+        ) {
+            addToBackStack(screen.tag)
+        }
+    }
 
     override fun toSettings() {
         val activity = activityProvider() ?: return

@@ -16,7 +16,7 @@
     <color name="text_secondary">#7f7f7f</color>
     <color name="text_disabled">#BDBDBD</color>
 
-    <color name="text_primary_inverse">#dddddd</color>
+    <color name="text_primary_inverse">@android:color/white</color>
     <color name="text_secondary_inverse">#4Dffffff</color>
     <color name="text_disabled_inverse">#9d999a</color>
 

@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.commit
 import dagger.hilt.android.AndroidEntryPoint
 import dev.olog.feature.main.home.HomeFragment
-import dev.olog.feature.presentation.base.BaseActivity
+import dev.olog.feature.components.BaseActivity
 import dev.olog.navigation.screens.FragmentScreen
 
 @AndroidEntryPoint

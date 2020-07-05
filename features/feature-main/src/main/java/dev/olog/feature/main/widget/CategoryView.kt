@@ -9,7 +9,7 @@ import android.view.View
 import androidx.core.content.withStyledAttributes
 import com.google.android.material.card.MaterialCardView
 import dev.olog.feature.main.R
-import dev.olog.shared.android.dipf
+import dev.olog.feature.android.dipf
 import kotlinx.android.synthetic.main.layout_category.view.*
 
 class CategoryView(

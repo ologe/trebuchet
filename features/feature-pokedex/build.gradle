@@ -30,8 +30,10 @@ android {
 dependencies {
     implementation project(":domain")
     implementation project(":navigation")
+
     implementation project(':shared:shared-components')
     implementation project(":shared:shared-android")
+    implementation project(":shared:shared")
 
     implementation libs.kotlin
     implementation libs.coroutines
@@ -50,6 +52,7 @@ dependencies {
     implementation libs.x_material
     implementation libs.x_constraint
     implementation libs.x_fragments
+    implementation libs.x_paging
 
     // move to another module
     implementation libs.glide

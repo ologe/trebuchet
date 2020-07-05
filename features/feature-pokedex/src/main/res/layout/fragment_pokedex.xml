@@ -2,16 +2,70 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="?android:colorBackground">
+    android:background="?colorSurface"
+    android:clipChildren="false"
+    android:orientation="vertical"
+    android:clipToPadding="false">
 
-    <TextView
-        android:id="@+id/text"
-        tools:text="@tools:sample/lorem/random"
-        android:textAppearance="?textAppearanceHeadline2"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="36dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="?actionBarSize"
+        android:clipChildren="false">
+
+        <ImageButton
+            android:id="@+id/back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/vd_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <dev.olog.feature.components.widget.PokeballBackground
+            app:layout_constraintTop_toTopOf="@+id/menu"
+            app:layout_constraintBottom_toBottomOf="@+id/menu"
+            app:layout_constraintStart_toStartOf="@+id/menu"
+            app:layout_constraintEnd_toEndOf="@+id/menu"
+            android:layout_width="250dp"
+            android:layout_height="250dp"/>
+
+        <ImageButton
+            android:id="@+id/menu"
+            android:src="@drawable/vd_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="24dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        tools:listitem="@layout/item_pokedex"
+        tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        android:paddingTop="92dp"
+        android:clipToPadding="false"
+        android:clipChildren="false"/>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

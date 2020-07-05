@@ -59,6 +59,8 @@ dependencies {
     implementation libs.coroutines_android
 
     implementation libs.x_material
+    implementation libs.x_paging
+    implementation libs.x_room
 
     implementation libs.dagger
     kapt libs.dagger_kapt

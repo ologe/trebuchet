@@ -3,7 +3,7 @@
 
     <application>
 
-        <activity android:name=".SettingsActivity"/>
+        <activity android:name="dev.olog.feature.settings.SettingsActivity"/>
 
     </application>
 

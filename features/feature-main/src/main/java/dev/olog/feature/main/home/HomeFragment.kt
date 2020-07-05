@@ -2,24 +2,25 @@ package dev.olog.feature.main.home
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
+import dev.olog.feature.components.BaseFragment
+import dev.olog.feature.lazyFast
 import dev.olog.feature.main.R
-import dev.olog.shared.lazyFast
 import kotlinx.android.synthetic.main.fragment_home.*
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     private val viewModel: HomeFragmentViewModel by viewModels()
 
     private val adapter by lazyFast {
-        HomeFragmentAdapter()
+        HomeFragmentAdapter(viewModel)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        list.setHasFixedSize(true)
         list.adapter = adapter
         list.layoutManager = LinearLayoutManager(requireContext())
 

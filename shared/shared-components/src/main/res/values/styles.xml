@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="PokeballBackground">
+        <item name="android:tint">?android:colorBackground</item>
+        <item name="android:src">@drawable/vd_pokeball</item>
+    </style>
+
+    <style name="MaterialImageButton" parent="Widget.AppCompat.ImageButton">
+        <item name="android:tint">?colorControlNormal</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+</resources>

@@ -1,5 +1,2 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dev.olog.feature.presentation.base">
-
-    /
-</manifest>
+    package="dev.olog.feature.components"/>

@@ -33,6 +33,11 @@
         <item name="colorControlNormal">@color/button_primary</item>
         <item name="colorControlNormalSecondary">@color/button_secondary</item>
         <item name="colorControlNormalInverse">@color/button_inverse</item>
+
+        <!-- styles-->
+        <item name="imageButtonStyle">@style/MaterialImageButton</item>
+        <item name="android:imageButtonStyle">@style/MaterialImageButton</item>
+
     </style>
 
 </resources>

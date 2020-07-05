@@ -19,14 +19,12 @@
         android:clipChildren="false"
         android:clipToPadding="false">
 
-        <ImageView
+        <dev.olog.feature.components.widget.PokeballBackground
             android:layout_width="250dp"
             android:layout_height="250dp"
-            android:src="@drawable/vd_pokeball"
             android:translationX="110dp"
             app:layout_constraintBottom_toBottomOf="@+id/title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:tint="?android:colorBackground" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/title"
