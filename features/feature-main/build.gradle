@@ -30,7 +30,7 @@ android {
 dependencies {
     implementation project(":domain")
     implementation project(":navigation")
-    implementation project(":shared:feature-presentation-base")
+    implementation project(':shared:shared-components')
     implementation project(":shared:shared-android")
 
     implementation libs.kotlin

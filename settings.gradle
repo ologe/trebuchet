@@ -16,4 +16,4 @@ include ':features:feature-settings'
 
 //shared
 include ':shared:shared-android'
-include ':shared:feature-presentation-base'
+include ':shared:shared-components'

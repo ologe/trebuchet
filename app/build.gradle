@@ -52,7 +52,7 @@ dependencies {
     implementation project(':navigation')
     implementation project(':data')
 
-    implementation project(':shared:feature-presentation-base')
+    implementation project(':shared:shared-components')
 
     implementation libs.kotlin
     implementation libs.coroutines
