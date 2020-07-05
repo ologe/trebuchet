@@ -7,8 +7,9 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
+        maven { url 'https://dl.bintray.com/sargunv/maven' }
     }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:4.0.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -23,7 +24,8 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url 'https://jitpack.io' }
+        maven { url 'https://dl.bintray.com/sargunv/maven' }
+
     }
     gradle.projectsEvaluated { // TODO remove after coroutines became stable
         tasks.withType(org.jetbrains.kotlin.gradle.tasks.AbstractKotlinCompile).all {
@@ -35,6 +37,25 @@ allprojects {
 
 }
 
+subprojects {
+
+    def androidPlugins = [
+            "com.android.build.gradle.AppPlugin",
+            "com.android.build.gradle.LibraryPlugin"
+    ]
+
+    project.plugins.whenPluginAdded { plugin ->
+        if (plugin.class.name in androidPlugins) {
+            // setup common options
+            project.android {
+                compileOptions {
+                    sourceCompatibility JavaVersion.VERSION_1_8
+                    targetCompatibility JavaVersion.VERSION_1_8
+                }
+            }
+        }
+    }
+}
 
 task clean(type: Delete) {
     delete rootProject.buildDir

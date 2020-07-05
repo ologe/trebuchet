@@ -1,38 +1,39 @@
 package dev.olog.data
 
-import dev.olog.domain.entity.GithubRepo
-import dev.olog.domain.entity.GithubUser
-import org.eclipse.egit.github.core.Repository
-import org.eclipse.egit.github.core.User
+import dev.olog.domain.PokemonSprites
+import dev.olog.domain.entity.Pokemon
+import dev.olog.domain.entity.PokemonBrief
+import me.sargunvohra.lib.pokekotlin.model.NamedApiResource
+import me.sargunvohra.lib.pokekotlin.model.Pokemon as PokemonDto
+import me.sargunvohra.lib.pokekotlin.model.PokemonSprites as PokemonSpritesDto
 
-internal fun Repository.toDomain(): GithubRepo {
-    return GithubRepo(
-        fork = this.isFork,
-        createdAt = this.createdAt,
-        description = this.description,
-        forks = this.forks,
-        hasDownloads = this.isHasDownloads,
-        hasIssues = this.isHasIssues,
-        hasWiki = this.isHasWiki,
-        homepage = this.homepage,
+internal fun NamedApiResource.toEntity(): PokemonBrief {
+    return PokemonBrief(
         id = this.id,
-        isPrivate = this.isPrivate,
-        language = this.language,
-        name = this.name,
-        openIssues = this.openIssues,
-        owner = this.owner.toDomain(),
-        pushedAt = this.pushedAt,
-        size = this.size,
-        updatedAt = this.updatedAt,
-        watchers = this.watchers
+        name = this.name
     )
 }
 
-internal fun User.toDomain(): GithubUser {
-    return GithubUser(
+internal fun PokemonDto.toEntity(): Pokemon {
+    return Pokemon(
         id = this.id,
         name = this.name,
-        avatarUrl = this.avatarUrl,
-        email = this.email
+        height = this.height,
+        order = this.order,
+        weight = this.weight,
+        sprites = this.sprites.toEntity()
+    )
+}
+
+internal fun PokemonSpritesDto.toEntity(): PokemonSprites {
+    return PokemonSprites(
+        backDefault = this.backDefault,
+        backShiny = this.backShiny,
+        frontDefault = this.frontDefault,
+        frontShiny = this.frontShiny,
+        backFemale = this.backFemale,
+        backShinyFemale = this.backShinyFemale,
+        frontFemale = this.frontFemale,
+        frontShinyFemale = this.frontShinyFemale
     )
 }

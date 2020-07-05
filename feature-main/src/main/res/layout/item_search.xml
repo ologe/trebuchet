@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/HomeSearchCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    app:contentPadding="12dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="48dp"
+        android:clipToPadding="false"
+        android:clipChildren="false">
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:src="@drawable/vd_pokeball"
+            android:translationX="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="?android:colorBackground" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:fontFamily="sans-serif-black"
+            android:paddingEnd="12dp"
+            android:text="@string/search_header"
+            android:textAppearance="?textAppearanceHeadline4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/searchLayout"
+            style="@style/RoundedSearchThemeLayout"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="48dp"
+            android:hint="@string/search_hint"
+            app:boxBackgroundColor="?android:colorBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            app:startIconDrawable="@drawable/vd_search">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <dev.olog.feature.main.widget.CategoryView
+            android:id="@+id/pokedex"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/category_pokedex"
+            android:tint="@color/color_pokedex"
+            app:layout_constraintEnd_toStartOf="@+id/moves"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchLayout" />
+
+        <dev.olog.feature.main.widget.CategoryView
+            android:id="@+id/moves"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/category_moves"
+            android:tint="@color/color_moves"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/pokedex"
+            app:layout_constraintTop_toTopOf="@+id/pokedex" />
+
+        <dev.olog.feature.main.widget.CategoryView
+            android:id="@+id/abilities"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:text="@string/category_abilities"
+            android:tint="@color/color_abilities"
+            app:layout_constraintStart_toStartOf="@+id/pokedex"
+            app:layout_constraintTop_toBottomOf="@+id/pokedex"
+            app:layout_constraintEnd_toEndOf="@+id/pokedex"
+            android:layout_marginTop="16dp"/>
+
+        <dev.olog.feature.main.widget.CategoryView
+            android:id="@+id/items"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:text="@string/category_items"
+            android:tint="@color/color_items"
+            app:layout_constraintStart_toStartOf="@+id/moves"
+            app:layout_constraintTop_toBottomOf="@+id/moves"
+            app:layout_constraintEnd_toEndOf="@+id/moves"
+            android:layout_marginTop="16dp"/>
+
+        <dev.olog.feature.main.widget.CategoryView
+            android:id="@+id/locations"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:text="@string/category_locations"
+            android:tint="@color/color_locations"
+            app:layout_constraintStart_toStartOf="@+id/abilities"
+            app:layout_constraintTop_toBottomOf="@+id/abilities"
+            app:layout_constraintEnd_toEndOf="@+id/abilities"
+            android:layout_marginTop="16dp"/>
+
+        <dev.olog.feature.main.widget.CategoryView
+            android:id="@+id/typeCharts"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:text="@string/category_type_charts"
+            android:tint="@color/color_type_charts"
+            app:layout_constraintStart_toStartOf="@+id/items"
+            app:layout_constraintTop_toBottomOf="@+id/items"
+            app:layout_constraintEnd_toEndOf="@+id/items"
+            android:layout_marginTop="16dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

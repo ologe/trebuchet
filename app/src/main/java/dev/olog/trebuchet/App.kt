@@ -2,6 +2,13 @@ package dev.olog.trebuchet
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
+import dev.olog.navigation.ActivityProvider
+import javax.inject.Inject
 
 @HiltAndroidApp
-class App : Application()
+class App : Application() {
+
+    @Inject
+    lateinit var activityProvider: ActivityProvider
+
+}

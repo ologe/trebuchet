@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_pokedex">#4FC1A6</color>
+    <color name="color_moves">#F7776A</color>
+    <color name="color_abilities">#58AAF4</color>
+    <color name="color_items">#FFCF4A</color>
+    <color name="color_locations">#7B538B</color>
+    <color name="color_type_charts">#B1736C</color>
+</resources>

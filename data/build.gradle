@@ -3,14 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 
-def localProperties = new Properties()
-def localPropertiesFile = rootProject.file('local.properties')
-if (localPropertiesFile.exists()) {
-    localPropertiesFile.withReader('UTF-8') { reader ->
-        localProperties.load(reader)
-    }
-}
-
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -22,9 +14,6 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
-
-        buildConfigField 'String', "GITHUB_TOKEN", localProperties.github_token
     }
 
     buildTypes {
@@ -46,7 +35,7 @@ dependencies {
     implementation libs.dagger_hilt
     kapt libs.dagger_hilt_kapt
 
-    implementation "org.eclipse.mylyn.github:org.eclipse.egit.github.core:2.1.5"
+    implementation "me.sargunvohra.lib:pokekotlin:2.3.1"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

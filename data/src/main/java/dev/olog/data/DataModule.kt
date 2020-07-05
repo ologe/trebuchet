@@ -4,8 +4,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
-import dev.olog.domain.gateway.GithubGateway
-import dev.olog.domain.gateway.UserGateway
+import dev.olog.domain.gateway.PokedexGateway
 import javax.inject.Singleton
 
 @Module
@@ -14,10 +13,7 @@ abstract class DataModule {
 
     @Binds
     @Singleton
-    internal abstract fun bindGithubRepo(impl: GithubRepository): GithubGateway
+    internal abstract fun bindPokedexRepo(impl: PokedexRepository): PokedexGateway
 
-    @Binds
-    @Singleton
-    internal abstract fun bindUserRepo(impl: UserRepository): UserGateway
 
 }

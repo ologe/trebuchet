@@ -4,9 +4,7 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class GithubUser(
-    val id: Int?,
-    val avatarUrl: String?,
-    val email: String?,
-    val name: String?
+data class PokemonBrief(
+    val id: Int,
+    val name: String
 ) : Parcelable

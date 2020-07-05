@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_header">What Pokemon are you looking for?</string>
+    <string name="search_hint">Search Pokemon, Move, Ability ecc..</string>
+
+    <string name="category_pokedex">Pokedex</string>
+    <string name="category_moves">Moves</string>
+    <string name="category_abilities">Abilities</string>
+    <string name="category_items">Items</string>
+    <string name="category_locations">Locations</string>
+    <string name="category_type_charts">Type Charts</string>
+</resources>

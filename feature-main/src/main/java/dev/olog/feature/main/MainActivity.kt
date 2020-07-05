@@ -15,11 +15,7 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
 
         if (savedInstanceState == null) {
-            if (viewModel.isLogged()) {
-                viewModel.navigateToMain(this)
-            } else {
-                viewModel.navigateToLogin(this)
-            }
+            viewModel.navigateToMain()
         }
 
     }
