@@ -30,8 +30,8 @@ android {
 dependencies {
     implementation project(":domain")
     implementation project(":navigation")
-    implementation project(":feature-presentation-base")
-    implementation project(":shared-android")
+    implementation project(":shared:feature-presentation-base")
+    implementation project(":shared:shared-android")
 
     implementation libs.kotlin
     implementation libs.coroutines
@@ -53,6 +53,8 @@ dependencies {
 
     // move to another module
     implementation libs.glide
+
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

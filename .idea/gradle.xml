@@ -13,14 +13,17 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/domain" />
-            <option value="$PROJECT_DIR$/feature-detail" />
-            <option value="$PROJECT_DIR$/feature-main" />
-            <option value="$PROJECT_DIR$/feature-presentation-base" />
-            <option value="$PROJECT_DIR$/feature-settings" />
-            <option value="$PROJECT_DIR$/flavor-full" />
-            <option value="$PROJECT_DIR$/flavor-lite" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/feature-detail" />
+            <option value="$PROJECT_DIR$/features/feature-main" />
+            <option value="$PROJECT_DIR$/features/feature-settings" />
+            <option value="$PROJECT_DIR$/flavors" />
+            <option value="$PROJECT_DIR$/flavors/flavor-full" />
+            <option value="$PROJECT_DIR$/flavors/flavor-lite" />
             <option value="$PROJECT_DIR$/navigation" />
-            <option value="$PROJECT_DIR$/shared-android" />
+            <option value="$PROJECT_DIR$/shared" />
+            <option value="$PROJECT_DIR$/shared/feature-presentation-base" />
+            <option value="$PROJECT_DIR$/shared/shared-android" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

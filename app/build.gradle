@@ -51,8 +51,8 @@ dependencies {
     implementation project(':domain')
     implementation project(':navigation')
     implementation project(':data')
-    implementation project(':feature-presentation-base')
-    // TODO don't need to add dependency for flavor here
+
+    implementation project(':shared:feature-presentation-base')
 
     implementation libs.kotlin
     implementation libs.coroutines

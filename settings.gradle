@@ -1,16 +1,19 @@
 rootProject.name='Trebuchet'
 
-include ':shared-android'
-include ':feature-presentation-base'
-
 include ':data'
 include ':domain'
 include ':app'
 include ':navigation'
 
-include ':flavor-lite'
-include ':flavor-full'
+//flavors
+include ':flavors:flavor-lite'
+include ':flavors:flavor-full'
 
-include ':feature-main'
-include ':feature-detail'
-include ':feature-settings'
+//features
+include ':features:feature-main'
+include ':features:feature-detail'
+include ':features:feature-settings'
+
+//shared
+include ':shared:shared-android'
+include ':shared:feature-presentation-base'
