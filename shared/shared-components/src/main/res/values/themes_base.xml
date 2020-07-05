@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Base" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!--typography-->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.Overline</item>
+
+        <!--shape-->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.LargeComponent</item>
+
+        <!--text color-->
+        <item name="android:textColor">@color/text_color_primary_selector</item>
+        <item name="android:textColorPrimary">?android:textColor</item>
+        <item name="android:textColorSecondary">@color/text_color_secondary_selector</item>
+        <item name="android:textColorPrimaryInverse">@color/text_color_primary_inverse_selector</item>
+        <item name="android:textColorSecondaryInverse">@color/text_color_secondary_inverse_selector</item>
+
+        <!--icon color-->
+        <item name="colorControlNormal">@color/button_primary</item>
+        <item name="colorControlNormalSecondary">@color/button_secondary</item>
+        <item name="colorControlNormalInverse">@color/button_inverse</item>
+    </style>
+
+</resources>

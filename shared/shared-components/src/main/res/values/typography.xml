@@ -1,0 +1,55 @@
+<resources>
+
+    <style name="TextAppearance.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+
+    </style>
+
+    <style name="TextAppearance.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+
+    </style>
+
+    <style name="TextAppearance.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+
+    </style>
+
+    <style name="TextAppearance.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+
+    </style>
+
+    <style name="TextAppearance.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+
+    </style>
+
+    <style name="TextAppearance.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+
+    </style>
+
+    <style name="TextAppearance.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+
+    </style>
+
+    <style name="TextAppearance.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+
+    </style>
+
+    <style name="TextAppearance.Body1" parent="TextAppearance.MaterialComponents.Body1">
+
+    </style>
+
+    <style name="TextAppearance.Body2" parent="TextAppearance.MaterialComponents.Body2">
+
+    </style>
+
+    <style name="TextAppearance.Button" parent="TextAppearance.MaterialComponents.Button">
+
+    </style>
+
+    <style name="TextAppearance.Caption" parent="TextAppearance.MaterialComponents.Caption">
+
+    </style>
+
+    <style name="TextAppearance.Overline" parent="TextAppearance.MaterialComponents.Overline">
+
+    </style>
+
+</resources>

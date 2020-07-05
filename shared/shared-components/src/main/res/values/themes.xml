@@ -1,0 +1,18 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.Platform">
+        <item name="colorPrimary">@color/white_50</item>
+        <item name="colorSecondary">@color/indigo_400</item>
+        <item name="android:colorBackground">@color/white_50</item>
+        <item name="colorSurface">@color/white_50</item>
+        <item name="colorError">@color/red_600</item>
+
+        <item name="colorOnPrimary">@color/text_primary</item>
+        <item name="colorOnSecondary">@color/text_primary_inverse</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorOnError">@color/text_primary_inverse</item>
+    </style>
+
+
+</resources>
