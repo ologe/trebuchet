@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="PokedexDetailCard" parent="">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Detail.Card</item>
+        <item name="cardBackgroundColor">?colorSurface</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Detail.Card" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeTopRight">24dp</item>
+        <item name="cornerSizeTopLeft">24dp</item>
+    </style>
+
     <style name="TypeChip" parent="Widget.MaterialComponents.Chip.Action">
         <item name="android:textColor">?android:textColorPrimaryInverse</item>
     </style>

@@ -1,8 +1,11 @@
 package dev.olog.navigation
 
+import dev.olog.domain.entity.Pokemon
+
 interface Navigator {
 
     fun toPokedex()
+    fun toPokedexDetail(pokemon: Pokemon)
 
     fun toMoves()
 

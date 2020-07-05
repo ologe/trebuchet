@@ -1,5 +1,5 @@
 package dev.olog.navigation
 
 object Params {
-    const val ID = "id"
+    const val POKEMON = "pokemon"
 }

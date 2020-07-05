@@ -2,6 +2,8 @@ package dev.olog.navigation
 
 import android.content.Intent
 import androidx.fragment.app.Fragment
+import dev.olog.domain.entity.Pokemon
+import dev.olog.feature.android.withArguments
 import dev.olog.navigation.extensions.topFragment
 import dev.olog.navigation.screens.ActivityScreen
 import dev.olog.navigation.screens.FragmentScreen
@@ -18,6 +20,25 @@ internal class NavigatorImpl @Inject constructor(
 
     override fun toPokedex() {
         navigateTo(FragmentScreen.POKEDEX)
+    }
+
+    override fun toPokedexDetail(pokemon: Pokemon) {
+        val activity = activityProvider() ?: return
+        activity.supportFragmentManager.topFragment?.setupExitFadeAnimation(activity)
+
+        val screen = FragmentScreen.POKEDEX_DETAIL
+        val fragment = fragments[screen]?.get()?.withArguments(
+            Params.POKEMON to pokemon
+        )
+        fragment?.setupEnterFadeAnimation(activity)
+
+        replaceFragment(
+            activity = activity,
+            fragment = fragment,
+            tag = screen.tag
+        ) {
+            addToBackStack(screen.tag)
+        }
     }
 
     override fun toMoves() {

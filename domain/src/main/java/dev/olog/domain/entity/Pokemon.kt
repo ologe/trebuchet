@@ -1,5 +1,9 @@
 package dev.olog.domain.entity
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Pokemon(
     val id: Int,
     val name: String,
@@ -15,7 +19,7 @@ data class Pokemon(
 //    val stats: List<PokemonStat>,
     val types: List<PokemonType>,
     val sprites: PokemonSprites
-) {
+) : Parcelable {
 
     val type1: PokemonType
         get() = types.first { it.slot == 1 }
@@ -47,5 +51,8 @@ data class Pokemon(
                 else -> "#000000"
             }
         }
+
+    val number: String
+        get() = "#${order.toString().padStart(3, '0')}"
 
 }

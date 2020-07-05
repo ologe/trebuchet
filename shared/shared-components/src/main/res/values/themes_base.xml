@@ -37,6 +37,7 @@
         <!-- styles-->
         <item name="imageButtonStyle">@style/MaterialImageButton</item>
         <item name="android:imageButtonStyle">@style/MaterialImageButton</item>
+        <item name="tabStyle">@style/MaterialTabLayout</item>
 
     </style>
 

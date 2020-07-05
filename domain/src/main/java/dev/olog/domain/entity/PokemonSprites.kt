@@ -1,5 +1,9 @@
 package dev.olog.domain.entity
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class PokemonSprites(
     val backDefault: String?,
     val backShiny: String?,
@@ -9,4 +13,4 @@ data class PokemonSprites(
     val backShinyFemale: String?,
     val frontFemale: String?,
     val frontShinyFemale: String?
-)
+) : Parcelable

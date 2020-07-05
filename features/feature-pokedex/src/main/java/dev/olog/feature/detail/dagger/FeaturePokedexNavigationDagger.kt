@@ -6,6 +6,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.multibindings.IntoMap
+import dev.olog.feature.detail.detail.PokedexDetailFragment
 import dev.olog.feature.detail.list.PokedexFragment
 import dev.olog.navigation.dagger.FragmentScreenKey
 import dev.olog.navigation.screens.FragmentScreen
@@ -17,8 +18,15 @@ internal class FeaturePokedexNavigationDagger {
     @IntoMap
     @Provides
     @FragmentScreenKey(FragmentScreen.POKEDEX)
-    internal fun provideFragment(): Fragment {
+    internal fun providePokedexFragment(): Fragment {
         return PokedexFragment()
+    }
+
+    @IntoMap
+    @Provides
+    @FragmentScreenKey(FragmentScreen.POKEDEX_DETAIL)
+    internal fun providePokedexDetailFragment(): Fragment {
+        return PokedexDetailFragment()
     }
 
 

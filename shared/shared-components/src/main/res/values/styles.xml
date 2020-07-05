@@ -13,4 +13,22 @@
         <item name="android:scaleType">fitCenter</item>
     </style>
 
+    <!--    tab layout-->
+    <style name="MaterialTabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabIndicatorFullWidth">true</item>
+        <item name="tabMode">scrollable</item>
+        <item name="tabGravity">center</item>
+        <item name="tabSelectedTextColor">?colorAccent</item>
+        <item name="tabTextColor">?android:textColorSecondary</item>
+        <item name="tabIndicatorColor">?colorAccent</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabIndicator">@drawable/tab_indicator</item>
+        <item name="tabUnboundedRipple">true</item>
+        <item name="tabTextAppearance">@style/MaterialTabLayout.TextAppearance</item>
+    </style>
+
+    <style name="MaterialTabLayout.TextAppearance" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:letterSpacing">0</item>
+    </style>
+
 </resources>

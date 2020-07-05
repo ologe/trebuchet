@@ -1,6 +1,5 @@
 package dev.olog.feature.detail.list
 
-import android.annotation.SuppressLint
 import android.graphics.Color
 import android.view.ViewGroup
 import androidx.core.view.isInvisible
@@ -17,12 +16,17 @@ import dev.olog.feature.detail.R
 import kotlinx.android.synthetic.main.item_pokedex.view.*
 
 internal class PokedexFragmentAdapter(
-
+    private val viewModel: PokedexFragmentViewModel
 ) : PagingDataAdapter<Pokemon, SimpleViewHolder>(PokemonDiff) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SimpleViewHolder {
         val view = parent.inflate(R.layout.item_pokedex)
-        return SimpleViewHolder(view)
+        val vh = SimpleViewHolder(view)
+        view.setOnClickListener {
+            val item = getItem(vh.bindingAdapterPosition) ?: return@setOnClickListener
+            viewModel.navigateToDetail(item)
+        }
+        return vh
     }
 
     override fun onBindViewHolder(holder: SimpleViewHolder, position: Int) {
@@ -32,7 +36,6 @@ internal class PokedexFragmentAdapter(
         }
     }
 
-    @SuppressLint("SetTextI18n")
     private fun RecyclerView.ViewHolder.bindItem(
         pokemon: Pokemon
     ) = with(itemView) {
@@ -44,7 +47,7 @@ internal class PokedexFragmentAdapter(
         if (type2.isVisible) {
             type2.text = pokemon.type2!!.type
         }
-        number.text = "#${pokemon.order.toString().padStart(3, '0')}"
+        number.text = pokemon.number
 
         // TODO move load lib loader
         Glide.with(context)

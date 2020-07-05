@@ -5,6 +5,7 @@ private const val PREFIX = "dev.olog"
 enum class FragmentScreen(val tag: String) {
     HOME("$PREFIX.home"),
     POKEDEX("$PREFIX.pokedex"),
+    POKEDEX_DETAIL("$PREFIX.pokedex.detail"),
     MOVES("$PREFIX.moves"),
     ABILITIES("$PREFIX.abilities"),
     ITEMS("$PREFIX.items"),

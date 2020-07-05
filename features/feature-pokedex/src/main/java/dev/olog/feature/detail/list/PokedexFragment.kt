@@ -22,7 +22,7 @@ internal class PokedexFragment : BaseFragment(R.layout.fragment_pokedex) {
     private val viewModel: PokedexFragmentViewModel by viewModels()
 
     private val adapter by lazyFast {
-        PokedexFragmentAdapter()
+        PokedexFragmentAdapter(viewModel)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
