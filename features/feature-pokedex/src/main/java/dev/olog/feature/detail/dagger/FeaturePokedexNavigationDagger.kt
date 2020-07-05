@@ -1,4 +1,4 @@
-package dev.olog.feature.main.dagger
+package dev.olog.feature.detail.dagger
 
 import androidx.fragment.app.Fragment
 import dagger.Module
@@ -6,19 +6,20 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.multibindings.IntoMap
-import dev.olog.feature.main.home.HomeFragment
+import dev.olog.feature.detail.PokedexFragment
 import dev.olog.navigation.dagger.FragmentScreenKey
 import dev.olog.navigation.screens.FragmentScreen
 
 @Module
 @InstallIn(ApplicationComponent::class)
-internal class FeatureMainNavigationModule {
+internal class FeaturePokedexNavigationDagger {
 
-    @Provides
     @IntoMap
-    @FragmentScreenKey(FragmentScreen.HOME)
+    @Provides
+    @FragmentScreenKey(FragmentScreen.POKEDEX)
     internal fun provideFragment(): Fragment {
-        return HomeFragment()
+        return PokedexFragment()
     }
+
 
 }

@@ -27,7 +27,7 @@ android {
 
 dependencies {
     api project(':features:feature-main')
-    api project(':features:feature-detail')
+    api project(':features:feature-pokedex')
 
     implementation libs.kotlin
     implementation libs.dagger

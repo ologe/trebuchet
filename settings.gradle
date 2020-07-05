@@ -11,7 +11,7 @@ include ':flavors:flavor-full'
 
 //features
 include ':features:feature-main'
-include ':features:feature-detail'
+include ':features:feature-pokedex'
 include ':features:feature-settings'
 
 //shared

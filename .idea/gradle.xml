@@ -14,8 +14,8 @@
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/features" />
-            <option value="$PROJECT_DIR$/features/feature-detail" />
             <option value="$PROJECT_DIR$/features/feature-main" />
+            <option value="$PROJECT_DIR$/features/feature-pokedex" />
             <option value="$PROJECT_DIR$/features/feature-settings" />
             <option value="$PROJECT_DIR$/flavors" />
             <option value="$PROJECT_DIR$/flavors/flavor-full" />

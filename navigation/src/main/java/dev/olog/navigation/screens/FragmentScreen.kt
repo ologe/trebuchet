@@ -2,8 +2,13 @@ package dev.olog.navigation.screens
 
 private const val PREFIX = "dev.olog"
 
-// TODO exposes fragment tags
 enum class FragmentScreen(val tag: String) {
     HOME("$PREFIX.home"),
-    DETAIL("$PREFIX.detail")
+    POKEDEX("$PREFIX.pokedex"),
+    MOVES("$PREFIX.moves"),
+    ABILITIES("$PREFIX.abilities"),
+    ITEMS("$PREFIX.items"),
+    LOCATIONS("$PREFIX.locations"),
+    TYPE_CHARTS("$PREFIX.type_charts"),
+    NEWS("$PREFIX.news")
 }

@@ -3,6 +3,6 @@ package dev.olog.feature.detail
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 
-internal class DetailFragmentViewModel @ViewModelInject constructor(
+internal class PokedexFragmentViewModel @ViewModelInject constructor(
 
 ) : ViewModel()
