@@ -6,7 +6,7 @@ include ':app'
 include ':navigation'
 
 //flavors
-include ':flavors:flavor-lite'
+include ':flavors:flavor-pokedex'
 include ':flavors:flavor-full'
 
 //features

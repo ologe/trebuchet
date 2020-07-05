@@ -19,7 +19,7 @@
             <option value="$PROJECT_DIR$/features/feature-settings" />
             <option value="$PROJECT_DIR$/flavors" />
             <option value="$PROJECT_DIR$/flavors/flavor-full" />
-            <option value="$PROJECT_DIR$/flavors/flavor-lite" />
+            <option value="$PROJECT_DIR$/flavors/flavor-pokedex" />
             <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/shared" />
             <option value="$PROJECT_DIR$/shared/shared" />

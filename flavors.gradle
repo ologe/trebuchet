@@ -11,5 +11,5 @@ class FlavorOptions {
 
 project.ext.flavors = [
         full   : new FlavorOptions(":flavors:flavor-full", false),
-        lite   : new FlavorOptions(":flavors:flavor-lite", true),
+        pokedex   : new FlavorOptions(":flavors:flavor-pokedex", true),
 ]
