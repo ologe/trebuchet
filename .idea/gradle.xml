@@ -22,7 +22,6 @@
             <option value="$PROJECT_DIR$/features/feature-news" />
             <option value="$PROJECT_DIR$/features/feature-pokedex" />
             <option value="$PROJECT_DIR$/features/feature-search" />
-            <option value="$PROJECT_DIR$/features/feature-settings" />
             <option value="$PROJECT_DIR$/features/feature-type-charts" />
             <option value="$PROJECT_DIR$/flavors" />
             <option value="$PROJECT_DIR$/flavors/flavor-abilities" />
@@ -32,6 +31,8 @@
             <option value="$PROJECT_DIR$/flavors/flavor-moves" />
             <option value="$PROJECT_DIR$/flavors/flavor-pokedex" />
             <option value="$PROJECT_DIR$/flavors/flavor-type-charts" />
+            <option value="$PROJECT_DIR$/libs" />
+            <option value="$PROJECT_DIR$/libs/lib-image-loader" />
             <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/shared" />
             <option value="$PROJECT_DIR$/shared/shared" />

@@ -7,12 +7,12 @@ import androidx.core.view.isVisible
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.Priority
 import dev.olog.domain.entity.Pokemon
 import dev.olog.feature.android.inflate
 import dev.olog.feature.components.adapter.SimpleViewHolder
 import dev.olog.feature.detail.R
+import dev.olog.lib.image.loader.LoadPriority
+import dev.olog.lib.image.loader.loadRequest
 import kotlinx.android.synthetic.main.item_pokedex.view.*
 
 internal class PokedexFragmentAdapter(
@@ -50,10 +50,8 @@ internal class PokedexFragmentAdapter(
         number.text = pokemon.number
 
         // TODO move load lib loader
-        Glide.with(context)
-            .load(pokemon.sprites.frontDefault)
-            .priority(Priority.IMMEDIATE)
-            .centerCrop()
+        context.loadRequest(pokemon.sprites.frontDefault)
+            .priority(LoadPriority.HIGH)
             .into(sprite)
     }
 

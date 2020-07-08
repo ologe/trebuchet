@@ -2,7 +2,7 @@ package dev.olog.trebuchet
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
-import dev.olog.navigation.ActivityProvider
+import dev.olog.navigation.utils.ActivityProvider
 import javax.inject.Inject
 
 @HiltAndroidApp

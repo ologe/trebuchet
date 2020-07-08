@@ -11,5 +11,6 @@ enum class FragmentScreen(val tag: String) {
     ITEMS("$PREFIX.items"),
     LOCATIONS("$PREFIX.locations"),
     TYPE_CHARTS("$PREFIX.type_charts"),
-    NEWS("$PREFIX.news")
+    NEWS("$PREFIX.news"),
+    SEARCH("$PREFIX.search")
 }

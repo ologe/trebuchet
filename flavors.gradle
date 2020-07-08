@@ -10,6 +10,11 @@ class FlavorOptions {
 }
 
 project.ext.flavors = [
-        full   : new FlavorOptions(":flavors:flavor-full", false),
-        pokedex   : new FlavorOptions(":flavors:flavor-pokedex", true),
+        full      : new FlavorOptions(":flavors:flavor-full", false),
+        pokedex   : new FlavorOptions(":flavors:flavor-pokedex", false),
+        moves     : new FlavorOptions(":flavors:flavor-moves", false),
+        abilities : new FlavorOptions(":flavors:flavor-abilities", false),
+        items     : new FlavorOptions(":flavors:flavor-items", false),
+        locations : new FlavorOptions(":flavors:flavor-locations", false),
+        typecharts: new FlavorOptions(":flavors:flavor-type-charts", false),
 ]

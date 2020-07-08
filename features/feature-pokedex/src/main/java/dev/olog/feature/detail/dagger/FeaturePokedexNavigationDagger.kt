@@ -18,7 +18,7 @@ internal class FeaturePokedexNavigationDagger {
     @IntoMap
     @Provides
     @FragmentScreenKey(FragmentScreen.POKEDEX)
-    internal fun providePokedexFragment(): Fragment {
+    internal fun provideFragment(): Fragment {
         return PokedexFragment()
     }
 

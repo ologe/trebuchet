@@ -17,6 +17,8 @@ interface Navigator {
 
     fun toTypeCharts()
 
-    fun toSettings()
+    fun toNews()
+
+    fun toSearch()
 
 }

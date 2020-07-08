@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion 29
@@ -13,7 +15,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
+        consumerProguardFiles 'consumer-rules.pro'
     }
 
     buildTypes {
@@ -22,15 +24,41 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.0'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    testImplementation 'junit:junit:4.12'
+    implementation project(":domain")
+    implementation project(":navigation")
+
+    implementation project(':shared:shared-components')
+    implementation project(":shared:shared-android")
+    implementation project(":shared:shared")
+
+    implementation project(":libs:lib-image-loader")
+
+    implementation libs.kotlin
+    implementation libs.coroutines
+    implementation libs.coroutines_android
+
+    implementation libs.dagger
+    kapt libs.dagger_kapt
+    implementation libs.dagger_hilt
+    kapt libs.dagger_hilt_kapt
+    implementation libs.dagger_hilt_x
+    kapt libs.dagger_hilt_x_kapt
+
+    implementation libs.x_appcompat
+    implementation libs.x_core
+    implementation libs.x_recycler
+    implementation libs.x_material
+    implementation libs.x_constraint
+    implementation libs.x_fragments
+
+    // move to another module
+    implementation libs.glide
+
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
 }

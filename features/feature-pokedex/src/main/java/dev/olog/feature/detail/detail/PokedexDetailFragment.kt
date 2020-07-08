@@ -13,6 +13,8 @@ import dev.olog.feature.android.argument
 import dev.olog.feature.components.BaseFragment
 import dev.olog.feature.detail.R
 import dev.olog.feature.lazyFast
+import dev.olog.lib.image.loader.LoadPriority
+import dev.olog.lib.image.loader.loadRequest
 import dev.olog.navigation.Params
 import kotlinx.android.synthetic.main.fragment_pokedex_detail.*
 
@@ -37,9 +39,8 @@ internal class PokedexDetailFragment : BaseFragment(R.layout.fragment_pokedex_de
 
         content.setBackgroundColor(Color.parseColor(pokemon.colorHex))
 
-        Glide.with(requireContext())
-            .load(pokemon.sprites.frontDefault)
-            .priority(Priority.IMMEDIATE)
+        loadRequest(pokemon.sprites.frontDefault)
+            .priority(LoadPriority.HIGH)
             .into(sprite)
 
         back.setOnClickListener {
